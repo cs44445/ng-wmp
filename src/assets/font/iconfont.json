@@ -1,0 +1,79 @@
+{
+  "id": "2224532",
+  "name": "misc-wechat-wmp",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "24478154",
+      "name": "数据2",
+      "font_class": "shuju2",
+      "unicode": "e79c",
+      "unicode_decimal": 59292
+    },
+    {
+      "icon_id": "14863560",
+      "name": "task list",
+      "font_class": "tasklist",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "18986850",
+      "name": "WeChat",
+      "font_class": "WeChat",
+      "unicode": "e8db",
+      "unicode_decimal": 59611
+    },
+    {
+      "icon_id": "22928247",
+      "name": "time",
+      "font_class": "time",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "857021",
+      "name": "企业认证",
+      "font_class": "qiyerenzheng2",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "1393787",
+      "name": "task",
+      "font_class": "task1",
+      "unicode": "e72c",
+      "unicode_decimal": 59180
+    },
+    {
+      "icon_id": "16453591",
+      "name": "dashboard",
+      "font_class": "shujukanban-xuanzhong",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12788816",
+      "name": "payment_fill",
+      "font_class": "payment_fill",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "12154913",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "18215080",
+      "name": "task",
+      "font_class": "task",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+// cover some zorro styles
+$colorTitle: rgb(51, 0, 0);
+$colorPrimary: rgba(51, 0, 0, .18);
+$colorSec: rgba(198, 125, 48, .18);
+
+.ant-btn {
+  border-radius: 2px;
+  border: 1px solid $colorTitle;
+  color: $colorTitle;
+}
+
+.ant-btn.ant-btn-primary {
+  color: #FFF;
+}
+
+.ant-btn.ant-btn-sm {
+  padding-left: 24px;
+  padding-right: 24px;
+  min-width: 98px;
+}
