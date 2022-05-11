@@ -71,3 +71,9 @@
 ::ng-deep .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
   box-shadow: none;
 }
+
+.ant-btn-primary[disabled]{
+  color: #FFFFFF;
+  background-color: #998080;
+  border-color: #998080;
+}

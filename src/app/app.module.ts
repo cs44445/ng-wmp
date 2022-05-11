@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginTempModule } from './views/login-temp/login-temp.module';
+import { LoginModule } from './views/login/login.module';
 
 registerLocaleData(zh);
 
@@ -27,6 +28,7 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     LoginTempModule,
+    LoginModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

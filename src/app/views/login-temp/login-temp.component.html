@@ -18,7 +18,7 @@
         </nz-form-control>
       </nz-form-item>
     </form>
-    <button nz-button class="login--submit" nzType="primary" [disabled]='isLoading' :loading="isLoading"
+    <button nz-button class="login--submit" nzType="primary" [disabled]='isLoading' [nzLoading]="isLoading"
       (click)="handleLogin()">{{isLoading?'Waiting' : 'Login'}}</button>
   </div>
 </div>

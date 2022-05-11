@@ -32,9 +32,10 @@ export class LoginTempComponent implements OnInit {
     this.email = { email: this.loginForm }
     this.userServe.getToken(this.email).subscribe(res => {
       console.log(res, 'res');
-      // if () {
-
-      // }
+      if (res.accessToken) {
+        const { accessToken } = res
+        localStorage.setItem('token', accessToken)
+      }
     })
     return true
 

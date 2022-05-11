@@ -57,3 +57,9 @@
     width: 100%;
   }
 }
+
+.ant-btn-primary[disabled]{
+  color: #FFFFFF;
+  background-color: #998080;
+  border-color: #998080;
+}
