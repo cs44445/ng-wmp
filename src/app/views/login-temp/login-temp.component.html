@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="login--left">
+    <img class="login--logo" src="../../../assets/img/logo.png" alt="">
+    <h1 class="login--title">
+      WEB MANAGEMENT PORTAL
+    </h1>
+  </div>
+  <div class="login--right"></div>
+  <div class="login--content">
+    <form nz-form [formGroup]="validateForm" class="login--form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip=" ">
+          <nz-input-group>
+            <nz-form-label nzFor="邮箱" nzRequired>邮箱</nz-form-label>
+            <input type="text" nz-input formControlName="loginForm" placeholder="Please input user name" name="name"
+              [(ngModel)]="loginForm" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <button nz-button class="login--submit" nzType="primary" [disabled]='isLoading' :loading="isLoading"
+      (click)="handleLogin()">{{isLoading?'Waiting' : 'Login'}}</button>
+  </div>
+</div>

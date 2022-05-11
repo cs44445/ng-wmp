@@ -1,0 +1,73 @@
+.login-container {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+
+  .login--left {
+    flex: 0 0 480px;
+    padding: 48px 98px;
+    padding-right: 0;
+  }
+
+  .login--title {
+    margin-top: 16px;
+    font-size: 40px;
+    line-height: 60px;
+    font-family: Tahoma, Arial;
+    font-weight: bold;
+    color: #330000;
+  }
+
+  .login--right {
+    flex: 1 1 auto;
+    background: url('../../../assets/img/login/bg.png') no-repeat;
+    background-size: cover;
+  }
+}
+
+.login--content {
+  padding: 48px 60px;
+  position: absolute;
+  left: 98px;
+  top: 350px;
+  background: #FFF url('../../../assets/img/login/body-bg.png');
+  border-radius: 8px;
+
+  .login--form {
+    width: 480px;
+
+    .el-form-item {
+      margin-bottom: 40px;
+    }
+  }
+
+  .login--submit {
+    margin-top: 16px;
+    height: 40px;
+    width: 100%;
+  }
+}
+
+.login--form ::v-deep .el-form-item__error {
+  display: none;
+}
+
+::ng-deep .ant-form-item-label>label::after {
+  content: '';
+}
+
+::ng-deep .ant-input:hover {
+  border-color: transparent;
+  border-right-width: 0 !important;
+}
+
+::ng-deep .ant-input:focus,
+.ant-input-focused {
+  border-color: transparent;
+  box-shadow: none;
+  outline: 0;
+}
+
+::ng-deep .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+  box-shadow: none;
+}

@@ -58,8 +58,8 @@
               }
             ],
             "styles": [
-              "src/theme.less",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme.less"
             ],
             "scripts": []
           },
@@ -103,7 +103,8 @@
               "browserTarget": "ng-wmp:build:production"
             },
             "development": {
-              "browserTarget": "ng-wmp:build:development"
+              "browserTarget": "ng-wmp:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

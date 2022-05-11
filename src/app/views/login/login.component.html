@@ -1,0 +1,16 @@
+<div class="login-container">
+  <div class="login--left">
+    <img class="login--logo" src="../../../assets/img/logo.png" alt="">
+    <h1 class="login--title">
+      WEB MANAGEMENT PORTAL
+    </h1>
+  </div>
+  <div class="login--right"></div>
+  <div class="login--content">
+    <h3 class="login--form__title">Welcome to</h3>
+    <h3 class="login--form__title">Web Management Portal System!</h3>
+    <!-- <el-button class="login--submit" type="primary" :disabled='isLoading' :loading="isLoading" @click="handleLogin">{{ loginText }}</el-button> -->
+    <button nz-button class="login--submit" nzType="primary" [disabled]='isLoading' :loading="isLoading"
+      (click)="handleLogin()">{{isLoading?'Waiting' : 'Login'}}</button>
+  </div>
+</div>

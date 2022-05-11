@@ -4,13 +4,18 @@ $colorPrimary: rgba(51, 0, 0, .18);
 $colorSec: rgba(198, 125, 48, .18);
 
 .ant-btn {
-  border-radius: 2px;
-  border: 1px solid $colorTitle;
-  color: $colorTitle;
+  // border-radius: 2px;
+  // border: 1px solid $colorTitle;
+  // background-color: $colorTitle;
 }
 
 .ant-btn.ant-btn-primary {
   color: #FFF;
+  background-color: rgb(51, 0, 0);
+}
+
+.ant-btn.ant-btn-primary:hover {
+  background: #5c3333;
 }
 
 .ant-btn.ant-btn-sm {

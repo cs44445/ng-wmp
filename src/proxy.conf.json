@@ -1,0 +1,17 @@
+{
+  "/service": {
+    "target": "https://api-wechat-wmp-dev.ups.com/wmp",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/service": ""
+    }
+  },
+  "/civ": {
+    "target": "https://api-wechat-wmp-dev.ups.com/wmp/misc-wmp-civ",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/civ": ""
+    }
+  }
+}
