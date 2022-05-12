@@ -8,7 +8,7 @@ import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginTempModule } from './views/login-temp/login-temp.module';
@@ -20,6 +20,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { AuthInterceptorsService } from './services/api/authInterceptors.service';
 
 registerLocaleData(zh);
 
@@ -43,7 +44,14 @@ registerLocaleData(zh);
     NzIconModule,
     NzModalModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorsService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

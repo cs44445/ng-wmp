@@ -4,19 +4,19 @@ import {
   HttpInterceptor,
   HttpHandler, HttpRequest
 } from '@angular/common/http';
-
-import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptorsService {
+export class AuthInterceptorsService {
 
-  constructor(private auth: AuthService) { }
+  constructor(private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
-    const authToken = this.auth.getAuthorizationToken();
+    const authToken = localStorage.getItem('token')!
 
     /*
     * The verbose way:
@@ -27,9 +27,23 @@ export class InterceptorsService {
     });
     */
     // Clone the request and set the new header in one step.
+
+    // const authReq = req.clone({ setHeaders: { Authorization: `Bearer ${authToken}` } });
     const authReq = req.clone({ setHeaders: { Authorization: authToken } });
 
     // send cloned request with header to the next handler.
-    return next.handle(authReq);
+    return next.handle(authReq).pipe(
+      tap(
+        // 成功的回调
+        () => { },
+        // 失败的回调
+        error => {
+          if (error.status === 401) {
+            localStorage.removeItem('token')
+            this.router.navigate(['/login'])
+          }
+        }
+      )
+    );
   }
 }
