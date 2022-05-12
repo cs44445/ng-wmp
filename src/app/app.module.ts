@@ -13,12 +13,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginTempModule } from './views/login-temp/login-temp.module';
 import { LoginModule } from './views/login/login.module';
+import { NotFoundPageComponent } from './views/not-found-page/not-found-page.component';
+import { NotAuthPageComponent } from './views/not-auth-page/not-auth-page.component';
+
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundPageComponent,
+    NotAuthPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,11 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     LoginTempModule,
-    LoginModule
+    LoginModule,
+    NzButtonModule,
+    NzGridModule,
+    NzIconModule,
+    NzModalModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

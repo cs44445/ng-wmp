@@ -1,0 +1,35 @@
+<div class="errPage-container">
+  <button nz-button nzType="primary" class="pan-back-btn" routerLink="/dashboard">
+    <i nz-icon nzType="left" nzTheme="outline"></i>
+    返回
+  </button>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <h1 class="text-jumbo text-ginormous">
+      Oops!
+    </h1>
+    gif来源<a href="https://zh.airbnb.com/" target="_blank">airbnb</a> 页面
+    <h2>你没有权限去该页面</h2>
+    <h6>如有不满请联系你领导</h6>
+    <ul class="list-unstyled">
+      <li>或者你可以去:</li>
+      <li class="link-type" routerLink="/dashboard">
+        回首页
+      </li>
+      <li class="link-type">
+        <a href="https://www.taobao.com/">随便看看</a>
+      </li>
+      <li><a href="#" (click)="showModal($event)">点我看图</a></li>
+    </ul>
+  </div>
+  <div nz-col nzSpan="12">
+    <img [src]="errGif" width="313" height="428" alt="Girl has dropped her ice cream.">
+  </div>
+</div>
+<nz-modal [(nzVisible)]="dialogVisible" nzTitle="The first Modal" (nzOnCancel)="dialogVisible=false"
+  (nzOnOk)="dialogVisible=false">
+  <ng-container *nzModalContent>
+    <img [src]="ewizardClap" style="width: 100%;height: 100%;">
+  </ng-container>
+</nz-modal>
