@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-18.8%" y="-1.1%" width="137.5%" height="102.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.156386582 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="92.1544445%" id="linearGradient-2">
+            <stop stop-color="#C67D30" offset="0%"></stop>
+            <stop stop-color="#330000" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="WeChat-KPI-dashboard-1366*768" transform="translate(-10.000000, -158.000000)">
+            <g id="view_aside" filter="url(#filter-1)">
+                <g id="角色" transform="translate(12.000000, 162.000000)">
+                    <g id="icon_id">
+                        <circle id="椭圆形" fill="url(#linearGradient-2)" cx="20" cy="20" r="20"></circle>
+                        <path d="M27.9488278,30.08 C27.5665008,30.08 27.2575444,29.7739217 27.2575444,29.3960534 C27.2575444,27.1270518 26.2152159,25.0295052 24.3994269,23.6506738 C24.0971936,23.4205112 24.0393528,22.9949275 24.2727995,22.6974261 C24.3816468,22.5563157 24.5483349,22.4630293 24.7350812,22.436946 C24.919466,22.4130884 25.1039619,22.4608037 25.2462302,22.5672268 C27.4020908,24.2087909 28.64,26.6992697 28.64,29.3960534 C28.64,29.7739217 28.3288767,30.08 27.9488278,30.08 Z M12.0511722,30.08 C11.6689564,30.08 11.36,29.7739217 11.36,29.3960534 C11.36,28.4928552 11.5044352,27.6003508 11.7889718,26.738381 C12.0667853,25.8980433 12.473421,25.1055294 12.9980162,24.3845613 C13.5203334,23.6659546 14.1470251,23.0296962 14.8604502,22.5020321 C15.5205906,22.0113624 16.2429057,21.6226916 17.0074207,21.3382182 C16.193955,20.8496655 15.5093947,20.1657189 15.0182482,19.3471217 C14.4804013,18.456843 14.1981428,17.4384821 14.1981428,16.4070931 C14.1981428,13.2260994 16.7985327,10.64 20.0010835,10.64 C23.1993003,10.64 25.8018572,13.2282164 25.8041353,16.4070931 C25.8041353,19.5859968 23.2037453,22.1719876 20.0033615,22.1719876 C16.0028471,22.1719876 12.7490675,25.4116076 12.7490675,29.3960534 C12.7446225,29.7739217 12.4334992,30.08 12.0511722,30.08 Z M19.9989165,12.0101189 C17.5652147,12.0101189 15.5827653,13.9817275 15.5827653,16.4092373 C15.5827653,18.8324857 17.5630477,20.8084371 19.9989165,20.8084371 C22.4347853,20.8084371 24.4172347,18.8368284 24.4172347,16.4092373 C24.4172347,13.9838446 22.4347853,12.0101189 19.9989165,12.0101189 Z" id="Fill-1" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

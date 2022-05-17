@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="3.00160976 3 25.0016098 3 25.0016098 25 3.00160976 25"></polygon>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Customer-Satisfaction-发送至员工-报错备份" transform="translate(-704.000000, -482.000000)">
+            <g id="popup" transform="translate(512.000000, 258.000000)">
+                <g id="icon_cancel_nor" transform="translate(192.000000, 224.000000)">
+                    <rect id="矩形备份-5" fill-opacity="0.08" fill="#330000" x="0" y="0" width="28" height="28" rx="2"></rect>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <polyline id="路径-2备份" stroke="#330000" stroke-width="2" mask="url(#mask-2)" transform="translate(7.000000, 11.000000) rotate(-180.000000) translate(-7.000000, -11.000000) " points="5 7 9 11 5 15"></polyline>
+                    <polygon id="Fill-3" fill="#330000" mask="url(#mask-2)" transform="translate(8.750000, 19.000000) scale(-1, 1) translate(-8.750000, -19.000000) " points="8 20 9.5 20 9.5 18 8 18"></polygon>
+                    <polygon id="Fill-4" fill="#330000" mask="url(#mask-2)" transform="translate(12.000000, 19.000000) scale(-1, 1) translate(-12.000000, -19.000000) " points="11 20 13 20 13 18 11 18"></polygon>
+                    <path d="M5,11 L19.293802,11 C21.7646007,11 23,12.3333333 23,15 C23,17.6666667 21.7646007,19 19.293802,19 L14,19" id="路径-16" stroke="#330000" stroke-width="2" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

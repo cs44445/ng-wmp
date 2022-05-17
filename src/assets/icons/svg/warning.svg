@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="0325修改" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06-1-Banner--管理-–-Banner-Management_0325" transform="translate(-320.000000, -102.000000)">
+            <g id="编组-38" transform="translate(304.000000, 90.000000)">
+                <g id="icon/gantanhao" transform="translate(16.000000, 12.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="蒙版"></g>
+                    <g id="组_469" mask="url(#mask-2)" fill="#B35C00" fill-rule="nonzero">
+                        <g transform="translate(2.500000, 2.500000)">
+                            <path d="M9.496,1.929 C13.6746179,1.929 17.0622629,5.31604956 17.0629989,9.49466737 C17.0637347,13.6732852 13.6772829,17.0615271 9.49866526,17.063 C5.32004764,17.0644719 1.93120886,13.6786173 1.929,9.5 C1.93120434,5.32112706 5.31712881,1.93341275 9.496,1.929 M9.496,0 C4.24929488,0 -0.004,4.25329488 -0.004,9.5 C-0.004,14.7467051 4.24929488,19 9.496,19 C14.7427051,19 18.996,14.7467051 18.996,9.5 C18.996,6.98044335 17.99511,4.56408117 16.2135144,2.78248558 C14.4319188,1.00088998 12.0155567,0 9.496,0 Z" id="路径_1-44"></path>
+                            <rect id="矩形_1-4" x="8.567" y="12.469" width="2" height="3"></rect>
+                            <path d="M10.246,11.572 L8.746,11.572 C8.492,9.099 8.207,6.642 8.001,4.154 L11.001,4.154 C10.772,6.643 10.502,9.1 10.246,11.572 Z" id="路径_2-15"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

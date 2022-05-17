@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16"></rect>
+    </defs>
+    <g id="1104-update" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Real-Name-Identify-Pending-Overdue-将要逾期" transform="translate(-1742.000000, -806.000000)">
+            <g id="Submitter-+-2233243-+-Document-Type-+-ID-Card-+-Name-+-孙某某-+-15332321232-+-Mobile-Phone-+-Email-Address-+-15332321232@163.com-+-Expired-Date-+-2027-03-01-+-ID-Card-Number-+-Overdue备份-+-321027199303030333-+-NO备份-+-Certificate-Images-+-WechatIMG39-恢复的-蒙版" transform="translate(1389.000000, 224.000000)">
+                <g id="编组" transform="translate(24.000000, 86.000000)">
+                    <g id="编组-9" transform="translate(0.000000, 340.000000)">
+                        <g id="alert_icon-9" transform="translate(329.000000, 156.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="蒙版"></g>
+                            <g id="icn_alert-3" mask="url(#mask-2)">
+                                <g transform="translate(0.000000, 1.000000)" id="组_20168-3">
+                                    <path d="M6.47403854,0.872207601 C6.80138291,0.329923461 7.37859696,0 8,0 C8.62140304,0 9.19861709,0.329923461 9.52596146,0.872207601 L15.7321365,11.188284 C16.0740591,11.756631 16.0896886,12.470434 15.7729881,13.0539821 C15.4562877,13.6375301 14.8568359,13.99947 14.206175,14 L1.79382499,14 C1.14316411,13.99947 0.543712344,13.6375301 0.227011853,13.0539821 C-0.0896886384,12.470434 -0.074059072,11.756631 0.26786353,11.188284 L6.47403854,0.872207601 Z" id="多边形_1-3" fill="#FEC429" fill-rule="nonzero"></path>
+                                    <g id="_4" transform="translate(6.653563, 2.019565)" fill="#330001" fill-rule="nonzero" font-family="Roboto-Regular, Roboto" font-size="9.87386826" font-weight="normal">
+                                        <text id="!">
+                                            <tspan x="0" y="9.14673352">!</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

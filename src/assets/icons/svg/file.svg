@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="1104-update" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Environment-Protocol-Pending-details-文件" transform="translate(-1413.000000, -686.000000)">
+            <g id="Submitter-+-2233243-+-Document-Type-+-ID-Card-+-Name-+-孙某某-+-15332321232-+-Mobile-Phone-+-Email-Address-+-15332321232@163.com-+-Expired-Date-+-2027-03-01-+-ID-Card-Number-+-Overdue备份-+-321027199303030333-+-NO备份-+-Certificate-Images-+-WechatIMG39-恢复的-蒙版" transform="translate(1389.000000, 224.000000)">
+                <g id="编组" transform="translate(24.000000, 462.000000)">
+                    <g id="矩形-+-路径-2-蒙版" transform="translate(0.000000, 0.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="蒙版"></g>
+                        <g id="编组" mask="url(#mask-2)">
+                            <g transform="translate(2.500000, 4.000000)">
+                                <path d="M1.22727273,0 L5.03240272,0 C5.46349804,1.4285368e-16 5.86298369,0.226184932 6.0847804,0.595846118 L7.82431051,3.49506297 C8.04610722,3.86472416 8.44559287,4.09090909 8.87668819,4.09090909 L16.7727273,4.09090909 C17.4505313,4.09090909 18,4.64037781 18,5.31818182 L18,14.3181818 C18,14.9959858 17.4505313,15.5454545 16.7727273,15.5454545 L1.22727273,15.5454545 C0.549468716,15.5454545 -1.39037554e-16,14.9959858 0,14.3181818 L0,1.22727273 C-3.05051656e-16,0.549468716 0.549468716,-9.7534028e-17 1.22727273,0 Z" id="矩形" stroke="none" fill="#330000" fill-rule="evenodd"></path>
+                                <line x1="8.81818182" y1="2.22727273" x2="16.1818182" y2="2.22727273" id="路径-2" stroke="#330000" stroke-width="2.25" fill="none" stroke-linecap="round"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

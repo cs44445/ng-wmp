@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="KPI-guideline-12.16.V2" transform="translate(-914.000000, -1925.000000)">
+            <g id="编组-19" transform="translate(43.000000, 1826.000000)">
+                <g id="icon_reply_nor" transform="translate(871.000000, 99.000000)">
+                    <path d="M16.9998254,0 C17.5522187,0 18,0.47763188 18,1.06687292 L18.0008752,9.22301312 C17.1515602,8.46248335 16.0297895,8 14.8,8 C12.1490332,8 10,10.1490332 10,12.8 C10,14.0297895 10.4624833,15.1515602 11.2230131,16.0008752 L1.00019653,16 C0.447781308,16 0,15.5223681 0,14.9331271 L0,1.06687292 C0,0.47763188 0.447781308,0 1.00019653,0 L16.9998254,0 Z M7.99223415,7.11980488 L3.55205854,7.11980488 L3.55205854,8.89578537 L7.99223415,8.89578537 L7.99223415,7.11980488 Z M10.6562537,3.56766829 L3.55205854,3.56766829 L3.55205854,5.34372683 L10.6562537,5.34372683 L10.6562537,3.56766829 Z" id="Fill-11" fill="#330000"></path>
+                    <g id="icon_serach" transform="translate(11.000000, 9.000000)">
+                        <circle id="Oval-2" fill="#330000" cx="3.8" cy="3.8" r="3.8"></circle>
+                        <path d="M1.4,3.8 C1.4,5.1254834 2.4745166,6.2 3.8,6.2" id="路径" stroke="#FFFFFF" stroke-width="0.5"></path>
+                        <line x1="5.29901921" y1="4.90828864" x2="8.50098079" y2="7.69171136" id="Line-3" stroke="#330000" stroke-linecap="square"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

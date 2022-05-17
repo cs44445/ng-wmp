@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-4.3%" y="-1.1%" width="108.6%" height="102.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.156386582 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="V2-Customer-Satisfaction-wechat-OA-Rating-滑动查看评价" transform="translate(-22.000000, -353.000000)">
+            <g id="view_aside" filter="url(#filter-1)">
+                <g id="view_left-bar">
+                    <g id="icon_payment_select" transform="translate(24.000000, 357.000000)">
+                        <circle id="椭圆形" fill="#FFFFFF" cx="10" cy="10" r="10"></circle>
+                        <rect id="矩形" stroke="#330000" stroke-width="0.8" x="4" y="7" width="12" height="9" rx="1"></rect>
+                        <rect id="矩形" fill="#330000" x="12" y="11" width="3" height="1" rx="0.5"></rect>
+                        <path d="M5,7 L11.6745122,4.16670161 C12.3495874,3.85450764 13.0285404,4.00432021 13.30037,4.42077676 C13.3416633,4.48404024 13.3735891,4.55154741 13.3953948,4.62170721 L14,7" id="路径" stroke="#330000" stroke-width="0.8"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="0924-update" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Security-Protocol-Pending--Reject" transform="translate(-720.000000, -304.000000)">
+            <g id="组_20292" transform="translate(648.000000, 131.000000)">
+                <g id="card_alert" transform="translate(56.000000, 169.000000)">
+                    <g id="icn_alert" transform="translate(16.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="蒙版"></g>
+                        <g mask="url(#mask-2)" id="组_20168">
+                            <g transform="translate(2.500000, 4.000000)">
+                                <path d="M7.8,1.755 C8.16467855,1.16656614 8.80772487,0.808565375 9.5,0.808565375 C10.1922751,0.808565375 10.8353214,1.16656614 11.2,1.755 L18.114,12.949 C18.4949195,13.5657147 18.5123316,14.3402642 18.1595109,14.9734736 C17.8066902,15.6066831 17.1388699,15.9994249 16.414,16 L2.586,16 C1.86113013,15.9994249 1.19330985,15.6066831 0.840489119,14.9734736 C0.487668389,14.3402642 0.505080535,13.5657147 0.886,12.949 L7.8,1.755 Z" id="多边形_1" fill="#030303" fill-rule="nonzero"></path>
+                                <g id="_" transform="translate(8.000000, 3.000000)" fill="#FFFBEA" font-family="Roboto-Regular, Roboto" font-size="11" font-weight="normal">
+                                    <text id="!">
+                                        <tspan x="0" y="10">!</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
