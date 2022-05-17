@@ -1,0 +1,123 @@
+.sidebar-logo-container {
+  padding: 36px 0;
+  position: relative;
+  width: 100%;
+  background: #330000;
+
+  .logo-btn {
+    background-color: #330000;
+    border: 0;
+  }
+}
+
+.sidebar-title {
+  margin: 0 24px;
+  margin-bottom: 24px;
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  line-height: 50px;
+  font-size: 24px;
+  font-family: Tahoma;
+}
+
+.sidebar-logo {
+  margin-bottom: 24px;
+  margin-left: 50%;
+  width: 36px;
+  transform: translate(-50%, 0);
+}
+
+.info--title {
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  background: linear-gradient(315deg, rgba(198, 125, 48, .18) 0%, rgba(51, 0, 0, .18) 100%);
+  border-radius: 2px 2px 0px 0px;
+  color: #330000;
+
+  .info--title__close {
+    font-size: 30px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.info--container {
+  display: flex;
+  align-items: center;
+  margin: 0 12px;
+  padding: 0 18px;
+  height: 48px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #330000, rgba(198, 125, 48, 1));
+
+  &.closed {
+    justify-content: center;
+    background: none;
+    margin: 0;
+    padding: 0;
+
+    .info--user__icon {
+      margin-right: 0 !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+
+  .user-icon {
+    flex: 0 0 36px;
+    width: 36px !important;
+    height: 36px !important;
+    padding-top: 6px;
+    line-height: 36px;
+  }
+
+  .sidebar--info {
+    flex: 1 1 auto;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 20px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .info--user__show {
+    margin: 5px 0 0 12px;
+    line-height: 12px !important;
+    cursor: pointer;
+  }
+}
+
+.info-popover--container {
+  padding: 0 18px 12px;
+
+  .info--line {
+    display: flex;
+    height: 36px;
+    align-items: center;
+  }
+
+  .info--label {
+    flex: 0 0 140px;
+    color: #999999;
+  }
+
+  .info--value {
+    flex: 1 1 auto;
+    color: #333333;
+  }
+}
+
+::ng-deep .ant-popover-inner-content {
+  padding: 0 !important;
+}
+
+::ng-deep .info-popover--container {
+  padding: 0 !important;
+  margin: 0 50px 12px 18px !important;
+}

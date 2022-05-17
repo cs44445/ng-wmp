@@ -12,3 +12,12 @@ export interface AzuretokenInfo {
   azureAccessToken?: string
   azureIdToken?: string
 }
+export interface StaffInfo {
+  staffName: string,
+  roleName: string
+  baseRole: string
+  azureId: string
+  email: string
+  createTime: string
+  id: string
+}

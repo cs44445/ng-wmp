@@ -21,6 +21,13 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { AuthInterceptorsService } from './services/api/authInterceptors.service';
+import { LayoutComponent } from './layout/layout.component';
+import { HttpInterceptorProviders } from './services/interceptors';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { SideBarComponent } from './layout/components/side-bar/side-bar.component';
+import { SideBarModule } from './layout/components/side-bar/side-bar.module';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 registerLocaleData(zh);
 
@@ -28,7 +35,9 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     NotFoundPageComponent,
-    NotAuthPageComponent
+    NotAuthPageComponent,
+    LayoutComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,20 +46,26 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AngularSvgIconModule.forRoot(),
     LoginTempModule,
     LoginModule,
     NzButtonModule,
     NzGridModule,
     NzIconModule,
-    NzModalModule
+    NzModalModule,
+    NzLayoutModule,
+    NzAvatarModule,
+    SideBarModule,
+
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorsService,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptorsService,
+    //   multi: true
+    // }
+    HttpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

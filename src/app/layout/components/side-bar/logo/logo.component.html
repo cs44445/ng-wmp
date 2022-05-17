@@ -1,0 +1,50 @@
+<div class="sidebar-logo-container">
+  logo
+  <h1 *ngIf="opened; else imgContent" class="sidebar-title">{{ title }} </h1>
+  <ng-template #imgContent>
+    <img v-else src="../../../../../assets/img/logo.png" class="sidebar-logo">
+  </ng-template>
+  <button nz-button nz-popover nzPopoverPlacement="left" [nzPopoverContent]="contentTemplate" class="logo-btn"
+    [(nzPopoverVisible)]="visible" (nzPopoverVisibleChange)="changeShow($event)" nzPopoverTrigger="click">
+    <div class="info--container" [class.closed]="!opened">
+      <svg-icon src="../../../../../assets/icons/svg/user.svg" [svgClass]="'user-icon'">
+      </svg-icon>
+      <div v-if="opened" class="sidebar--info">
+        <p>{{ staffInfo?.staffName }}</p>
+        <p>{{ staffInfo?.roleName }}</p>
+      </div>
+      <svg-icon *ngIf="opened" src="../../../../../assets/icons/svg/arrow-right.svg" [svgClass]="'info--user__show'">
+      </svg-icon>
+    </div>
+
+  </button>
+  <ng-template #contentTemplate>
+    <p class="info--title">
+      <span>Account Information</span>
+      <svg-icon src="../../../../../assets/icons/svg/closed.svg" class="info--title__close" (click)="visible = false">
+      </svg-icon>
+    </p>
+    <div class="info-popover--container">
+      <p class="info--line">
+        <span class="info--label">Name</span>
+        <span class="info--value">{{ staffInfo?.staffName }}</span>
+      </p>
+      <p class="info--line">
+        <span class="info--label">Employee Number</span>
+        <span class="info--value">{{ staffInfo?.azureId }}</span>
+      </p>
+      <p class="info--line">
+        <span class="info--label">Role</span>
+        <span class="info--value">{{ staffInfo?.roleName }}</span>
+      </p>
+      <p class="info--line">
+        <span class="info--label">Email</span>
+        <span class="info--value">{{ staffInfo?.email }}</span>
+      </p>
+      <p class="info--line">
+        <span class="info--label">Setup Date</span>
+        <span class="info--value">{{ staffInfo?.createTime }}</span>
+      </p>
+    </div>
+  </ng-template>
+</div>

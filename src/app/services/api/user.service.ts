@@ -3,11 +3,17 @@ import { Injectable } from '@angular/core';
 import { stringify } from 'qs';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AzuretokenInfo, Base, Email } from '../type/user.type';
+import { AzuretokenInfo, Base, Email, StaffInfo } from '../type/user.type';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'content-type': 'application/x-www-form-urlencoded',
+  })
+}
+const NoAuthOptions = {
+  headers: new HttpHeaders({
+    'content-type': 'application/x-www-form-urlencoded',
+    'No-Auth': 'true'
   })
 }
 
@@ -22,7 +28,9 @@ export class UserService {
   // 获取用户信息
   staffInfo(): Observable<any> {
     return this.http
-      .get<Base<any>>(`${this.baseUrl}/service/misc-wmp-user/api/v1/staff/profile`)
+      // .get<Base<any>>(`${this.baseUrl}/service/misc-wmp-user/api/v1/staff/profile`)
+      .get<Base<StaffInfo>>(`${this.baseUrl}/service/misc-wmp-user/api/v1/staff/profile`)
+      .pipe(map(res => res.data))
   }
 
   // 重定向获取用户信息及token
@@ -37,7 +45,7 @@ export class UserService {
   getToken(params: Email): Observable<any> {
     const email = stringify(params)
     return this.http
-      .post<Base<any>>(`${this.authUrl}/oauth2/token/temporary-test`, email, httpOptions)
+      .post<Base<any>>(`${this.authUrl}/oauth2/token/temporary-test`, email, NoAuthOptions)
       .pipe(map(res => res.data))
   }
 }

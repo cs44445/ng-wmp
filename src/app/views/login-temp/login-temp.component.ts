@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/api/user.service';
-import { Email } from 'src/app/services/type/user.type';
+import { Email, StaffInfo } from 'src/app/services/type/user.type';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/business/local-storage.service';
 
 @Component({
   selector: 'app-login-temp',
@@ -14,8 +16,22 @@ export class LoginTempComponent implements OnInit {
   // email: Email = { email: "shun.chen@pacteraedge.com" }
   email?: Email
   validateForm!: FormGroup
+  staffInfo: StaffInfo = {
+    staffName: '',
+    roleName: '',
+    baseRole: '',
+    azureId: '',
+    email: '',
+    createTime: '',
+    id: ''
+  }
 
-  constructor(private fb: FormBuilder, private userServe: UserService) { }
+  constructor(
+    private fb: FormBuilder,
+    private userServe: UserService,
+    private router: Router,
+    private ls: LocalStorageService
+  ) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -31,10 +47,25 @@ export class LoginTempComponent implements OnInit {
     this.isLoading = true;
     this.email = { email: this.loginForm }
     this.userServe.getToken(this.email).subscribe(res => {
-      console.log(res, 'res');
+      // console.log(res, 'res');
       if (res.accessToken) {
         const { accessToken } = res
-        localStorage.setItem('token', accessToken)
+        this.ls.set('token', accessToken)
+
+        this.userServe.staffInfo().subscribe(res => {
+          const { name, role, azureId, email, createTime, id } = res
+          this.staffInfo = {
+            staffName: name,
+            roleName: role.name,
+            baseRole: role.baseRole,
+            azureId,
+            email,
+            createTime,
+            id
+          }
+          this.ls.set('staffInfo', this.staffInfo)
+        })
+        this.router.navigateByUrl('/dashboard')
       }
     })
     return true

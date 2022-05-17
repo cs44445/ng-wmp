@@ -31,19 +31,20 @@ export class AuthInterceptorsService {
     // const authReq = req.clone({ setHeaders: { Authorization: `Bearer ${authToken}` } });
     const authReq = req.clone({ setHeaders: { Authorization: authToken } });
 
+    return next.handle(authReq)
     // send cloned request with header to the next handler.
-    return next.handle(authReq).pipe(
-      tap(
-        // 成功的回调
-        () => { },
-        // 失败的回调
-        error => {
-          if (error.status === 401) {
-            localStorage.removeItem('token')
-            this.router.navigate(['/login'])
-          }
-        }
-      )
-    );
+    // return next.handle(authReq).pipe(
+    //   tap(
+    //     // 成功的回调
+    //     () => { },
+    //     // 失败的回调
+    //     error => {
+    //       if (error.status === 401) {
+    //         localStorage.removeItem('token')
+    //         this.router.navigate(['/login'])
+    //       }
+    //     }
+    //   )
+    // );
   }
 }

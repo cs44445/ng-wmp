@@ -1,0 +1,8 @@
+<div>
+  <p class="logout--container">
+    <svg-icon src="../../../../../assets/icons/svg/logout.svg" class="logout--icon" [class.closed]="!opened"
+      style="width: 22px;height: 24px; line-height: 24px; margin-right: 16px;" (click)="logout()">
+    </svg-icon>
+    <span *ngIf="opened" class="logout--button" (click)="logout()">Logout</span>
+  </p>
+</div>

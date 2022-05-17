@@ -13,7 +13,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ]
 })
 export class DashboardModule { }
