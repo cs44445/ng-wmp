@@ -1,1 +1,11 @@
-<app-side-bar></app-side-bar>
+<nz-layout>
+  <nz-sider [style]="restStyle">
+    <app-side-bar></app-side-bar>
+  </nz-sider>
+  <nz-layout class="test">
+    <app-page-header></app-page-header>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -28,6 +28,8 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { SideBarComponent } from './layout/components/side-bar/side-bar.component';
 import { SideBarModule } from './layout/components/side-bar/side-bar.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { PageHeaderModule } from './layout/components/page-header/page-header.module';
+import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
 
 registerLocaleData(zh);
 
@@ -37,7 +39,8 @@ registerLocaleData(zh);
     NotFoundPageComponent,
     NotAuthPageComponent,
     LayoutComponent,
-    SideBarComponent
+    SideBarComponent,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzAvatarModule,
     SideBarModule,
-
+    PageHeaderModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },

@@ -26,18 +26,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'layout',
-    component: LayoutComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'dashboard',
-        canActivate: [AuthGuard],
-        loadChildren: () => import('../app/views/dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-    ]
-  },
-  {
     path: 'login',
     component: LoginComponent
   },
@@ -45,11 +33,6 @@ const routes: Routes = [
     path: 'login-temp',
     component: LoginTempComponent
   },
-  // {
-  //   path: 'dashboard',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () => import('../app/views/dashboard/dashboard.module').then(m => m.DashboardModule)
-  // },
   {
     path: '401',
     component: NotAuthPageComponent

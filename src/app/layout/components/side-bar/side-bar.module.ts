@@ -15,7 +15,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   declarations: [
     LogoutComponent,
     LogoComponent,
-    SideBarItemComponent
+    SideBarItemComponent,
   ],
   imports: [
     CommonModule,
@@ -24,14 +24,13 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzMenuModule,
     NzLayoutModule,
     NzIconModule,
-    // NzIconDirective
   ],
   exports: [
     LogoutComponent,
     LogoComponent,
     SideBarItemComponent,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
   ]
 })
 export class SideBarModule { }

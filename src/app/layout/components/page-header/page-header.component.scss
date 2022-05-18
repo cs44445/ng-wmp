@@ -1,0 +1,37 @@
+.page--header {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 66px;
+  line-height: 66px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  background-color: "#FFF";
+  justify-content: "flex-start";
+  font-family: Tahoma, Arial;
+
+  .page--header__title {
+    display: flex;
+    align-items: center;
+  }
+
+  .page--title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #330000;
+  }
+}
+
+::ng-deep .anticon {
+  margin-right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgba(51, 0, 0, 1);
+
+  &:hover {
+    color: rgba(51, 0, 0, 0.6);
+  }
+
+  &.close {
+    transform: rotate(180deg);
+  }
+}
