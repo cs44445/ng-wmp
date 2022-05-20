@@ -1,0 +1,6 @@
+<div class="e-charts">
+  <div class="e-charts-box" :id="elId"></div>
+  <i :class="[isPage.previous?'i-left':'i-left-disable']" (click)="leftClick()"></i>
+  <i :class="[isPage.next?'i-right':'i-right-disable']" (click)="rightClick()"></i>
+  <span class="x-tips">{{ echartsData.filterOpt.isWeekly ? 'Week' : 'Month' }}</span>
+</div>

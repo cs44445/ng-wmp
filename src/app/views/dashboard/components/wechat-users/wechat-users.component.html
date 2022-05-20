@@ -1,0 +1,75 @@
+<div class="wechat-users-container modular-box">
+  <app-modular-title [title]="'WeChat User'"></app-modular-title>
+
+  <div>
+    <div class="f-between wu-top">
+      <div class="f-center wu-top-item">
+        <img src="../../../../../assets/img/icon_current followers@2x.png" />
+        <div class="f-column item-box">
+          <div class="item-title">Follower</div>
+          <div class="item-num"> {{currentFollowers}} </div>
+          <!-- <div class="item-num">{{ Number(currentFollowers).toLocaleString() }}</div> -->
+        </div>
+      </div>
+      <div class="line-r"></div>
+      <div class="f-center wu-top-item">
+        <img src="../../../../../assets/img/icon_active users@2x.png" />
+        <div class="f-column item-box">
+          <div class="item-title">Active User</div>
+          <div class="item-num">
+            <div class="num-y">
+              {{ isDay ? activeUser.day : activeUser.month }}
+            </div>
+          </div>
+        </div>
+        <div class="item-btn">
+          <div class="f-between">
+            <button nz-button [nzSize]="'small'" [class.btn-active]="isDay" (click)="isDayClick">Day</button>
+            <button nz-button [nzSize]="'small'" [class.btn-active]="!isDay" (click)="isDayClick">Month</button>
+          </div>
+        </div>
+      </div>
+      <div class="line-r"></div>
+      <div class="f-center wu-top-item">
+        <img src="../../../../../assets/img/icon_Stickness Rate@2x.png" />
+        <div class="f-column item-box">
+          <div class="item-title">Stickiness Rate</div>
+          <div class="item-num num-b">{{ stickinessRate }}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="chart-box">
+      <div class="chart-content wu-left">
+        <app-bar-charts [echartsData]="echartsData"></app-bar-charts>
+
+
+
+
+
+        <!-- <BarCharts
+          v-loading="isLoading1"
+          ref="WechatUsersBar"
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+          :charts-height="300"
+          :what-module="'WechatUsers'"
+          @chartsXAxis="chartsXAxis"
+        ></BarCharts> -->
+      </div>
+    </div>
+
+    <!-- <div class="chart-box">
+      <div class="chart-content wu-right">
+        <LineCharts
+          v-loading="isLoading2"
+          ref="WechatUsersLine"
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+          @chartsXAxis="chartsXAxis"
+        ></LineCharts>
+      </div>
+    </div> -->
+  </div>
+</div>

@@ -27,6 +27,7 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "suppressImplicitAnyIndexErrors": true, //解决报错：“元素隐式具有 “any“ 类型，因为类型为 “string“ 的表达式不能用于索引类型”
   }
 }

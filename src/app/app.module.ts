@@ -30,6 +30,7 @@ import { SideBarModule } from './layout/components/side-bar/side-bar.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { PageHeaderModule } from './layout/components/page-header/page-header.module';
 import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 registerLocaleData(zh);
 
@@ -40,7 +41,7 @@ registerLocaleData(zh);
     NotAuthPageComponent,
     LayoutComponent,
     SideBarComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +60,8 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzAvatarModule,
     SideBarModule,
-    PageHeaderModule
+    PageHeaderModule,
+    NzDatePickerModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },

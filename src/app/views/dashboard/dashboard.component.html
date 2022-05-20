@@ -1,2 +1,92 @@
-<p>dashboard works!</p>
-<h1>ddddddddddddddddd</h1>
+<div class="dashboard-container" v-loading="isLoading">
+  <div class="dashboard-content">
+    <!-- 筛选 -->
+    <div class="filter filter-fix">
+      <div class="filter-inner">
+        <div class="filter-left">
+          <div class="f-between">
+            <div class="btn-box f-between">
+              <button nz-button [nzSize]="'small'" [class.btn-active]="dateBtnChecked.one" (click)="oneClick()">Lastest
+                1 Month</button>
+              <span class="line-r"></span>
+              <button nz-button [nzSize]="'small'" [class.btn-active]="dateBtnChecked.three"
+                (click)="threeClick()">Lastest 3 Months</button>
+              <span class="line-r"></span>
+              <button nz-button [nzSize]="'small'" [class.btn-active]="dateBtnChecked.six" (click)="sixClick()">Lastest
+                6 Months</button>
+              <span class="line-r"></span>
+              <button nz-button [nzSize]="'small'" [class.btn-active]="dateBtnChecked.customize"
+                (click)="customizeClick('customize')">Customize Date</button>
+            </div>
+            <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)" nzFormat="YYYY-MM-dd">
+            </nz-range-picker>
+          </div>
+        </div>
+        <div class="filter-right">
+          <div class="f-between">
+            <div class="switch-box f-between">
+              <span>Show Data</span>
+              <nz-switch [(ngModel)]="echartsData.filterOpt.isShowData" active-color="rgba(51, 0, 0, 1)"
+                inactive-color="#ddd"></nz-switch>
+            </div>
+            <div v-if="!isGbsAdmin" class="switch-box f-between">
+              <span>Weekly Data</span>
+              <nz-switch [(ngModel)]="echartsData.filterOpt.isWeekly" active-color="rgba(51, 0, 0, 1)"
+                inactive-color="#ddd"></nz-switch>
+            </div>
+            <div v-if="!isGbsAdmin" class="switch-box f-between">
+              <span>Compare to last year</span>
+              <nz-switch [(ngModel)]="echartsData.filterOpt.isCompareLast" [nzDisabled]="isCompareDisabled"
+                active-color="rgba(51, 0, 0, 1)" inactive-color="#ddd"></nz-switch>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- echart部分 -->
+    <div class="charts-container">
+      <div class="charts-content">
+
+
+        <app-wechat-users [echartsSettings]="echartsSettings"></app-wechat-users>
+
+
+
+        <!-- <WechatUsers
+          v-if="!isGbsAdmin"
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+        ></WechatUsers>
+
+         <OperationData
+          v-if="!isGbsAdmin"
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+        ></OperationData>
+
+        <VolumeRevenue
+          v-if="!isGbsAdmin"
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+        ></VolumeRevenue>
+
+        <RepeatAccountshipper
+          v-if="!isGbsAdmin"
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+        ></RepeatAccountshipper>
+
+        <CustomerSatisfaction
+          :echarts-settings="echartsSettings"
+          :echarts-data="echartsData"
+        ></CustomerSatisfaction> -->
+      </div>
+      <div class="f-div"></div>
+    </div>
+
+    <div class="footer">
+      <button nz-button [nzSize]="'small'">Export</button>
+    </div>
+  </div>
+</div>
