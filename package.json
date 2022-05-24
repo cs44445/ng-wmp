@@ -23,6 +23,7 @@
     "echarts": "^5.3.2",
     "moment": "^2.29.3",
     "ng-zorro-antd": "^13.2.1",
+    "ngx-echarts": "^8.0.1",
     "normalize.css": "^8.0.1",
     "qs": "^6.10.3",
     "rxjs": "~7.5.0",

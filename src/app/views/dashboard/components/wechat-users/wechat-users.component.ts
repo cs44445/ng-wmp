@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DashboardService } from 'src/app/services/api/dashboard.service';
+import { MessageService } from 'src/app/services/business/message.service';
 import { WechatUserInfo } from 'src/app/services/type/dashboard.type';
 import { ThreeSeries, FourSeries } from 'src/app/services/type/echarts.type';
 import { echartDataInit, echartsData, echartsSettings } from "../../../../utils/dashboard-data";
@@ -10,8 +12,9 @@ import { weekAxis } from "../../../../utils/dashboradWeekXAxis";
   templateUrl: './wechat-users.component.html',
   styleUrls: ['./wechat-users.component.scss']
 })
-export class WechatUsersComponent implements OnInit {
-  @Input() echartsData = echartsData
+export class WechatUsersComponent implements OnInit, OnDestroy, AfterViewInit {
+  // @Input() echartsData = echartsData
+  echartsData = echartsData
   @Input() echartsSettings = echartsSettings
   isLoading1 = false
   isLoading2 = false
@@ -44,11 +47,19 @@ export class WechatUsersComponent implements OnInit {
   isLoading = false
   initData = ['', '', '', '', '', '', '', '', '', '', '', '']
   echartDataInit = echartDataInit
+  subscription?: Subscription
 
-  constructor(private dbServe: DashboardService) { }
+  constructor(private dbServe: DashboardService, private message: MessageService) { }
 
   ngOnInit(): void {
     this.getOperatingInfo()
+    this.getDatas()
+  }
+
+  ngAfterViewInit(): void {
+    this.subscription = this.message.getMessage().subscribe(res => {
+      console.log(res, 'wechat-users-echart-data');
+    })
   }
 
   getDatas() {
@@ -62,7 +73,7 @@ export class WechatUsersComponent implements OnInit {
   // 获取当前关注量、活跃用户数、粘性比
   getOperatingInfo() {
     this.dbServe.operatingInfo().subscribe(res => {
-      console.log(res, '=============dbserve');
+      console.log(res, '=============operatingInfo');
       let data = res || ''
       this.currentFollowers = data.currentFollowers
       this.activeUser.day = data.activeUserInfo.dayActiveUser;
@@ -82,7 +93,7 @@ export class WechatUsersComponent implements OnInit {
       endDate: this.echartsData.filterOpt.dateValue[1],
       isShowWeekly: this.echartsData.filterOpt.isWeekly,
     }).subscribe(res => {
-      console.log(res, '=============dbserve');
+      console.log(res, '=============wechatUsers');
       let data = res || "";
       if (!data) {
         this.isLoading2 = false;
@@ -150,6 +161,9 @@ export class WechatUsersComponent implements OnInit {
         isCompareLast: this.echartsData.filterOpt.isCompareLast,
         isweek: this.echartsData.filterOpt.isWeekly
       });
+      this.message.sendMessage(this.echartsData)
+      console.log(this.xAxisList, 'this.xAxisList');
+
     }
     for (let i = 0; i < 12; i++) {
       xAxis.push(this.xAxisList[i] || "");
@@ -160,6 +174,9 @@ export class WechatUsersComponent implements OnInit {
     }
     this.echartsData.wechatUsers.barOption.xAxisData = xAxis;
     this.echartsData.wechatUsers.lineOption.xAxisData = xAxis;
+    this.message.sendMessage(this.echartsData)
+    console.log(this.echartsData.wechatUsers.barOption.xAxisData, 'xxxxxxxxxxxxx');
+
   }
 
   // 统计活跃用户活跃度
@@ -204,7 +221,11 @@ export class WechatUsersComponent implements OnInit {
   }
 
   isDayClick() {
-    this.isDay = !this.isDay;
+    this.isDay = true
+  }
+
+  isMonthClick() {
+    this.isDay = false
   }
 
   testDbserve() {
@@ -304,4 +325,9 @@ export class WechatUsersComponent implements OnInit {
 
 
   }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
+  }
+
 }

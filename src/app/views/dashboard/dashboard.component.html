@@ -47,40 +47,9 @@
     <!-- echart部分 -->
     <div class="charts-container">
       <div class="charts-content">
-
-
-        <app-wechat-users [echartsSettings]="echartsSettings"></app-wechat-users>
-
-
-
-        <!-- <WechatUsers
-          v-if="!isGbsAdmin"
-          :echarts-settings="echartsSettings"
-          :echarts-data="echartsData"
-        ></WechatUsers>
-
-         <OperationData
-          v-if="!isGbsAdmin"
-          :echarts-settings="echartsSettings"
-          :echarts-data="echartsData"
-        ></OperationData>
-
-        <VolumeRevenue
-          v-if="!isGbsAdmin"
-          :echarts-settings="echartsSettings"
-          :echarts-data="echartsData"
-        ></VolumeRevenue>
-
-        <RepeatAccountshipper
-          v-if="!isGbsAdmin"
-          :echarts-settings="echartsSettings"
-          :echarts-data="echartsData"
-        ></RepeatAccountshipper>
-
-        <CustomerSatisfaction
-          :echarts-settings="echartsSettings"
-          :echarts-data="echartsData"
-        ></CustomerSatisfaction> -->
+        <!-- <app-wechat-users *ngIf="!isGbsAdmin()" [echartsSettings]="echartsSettings" [echartsData]="echartsData"> -->
+        <app-wechat-users *ngIf="!isGbsAdmin()" [echartsSettings]="echartsSettings">
+        </app-wechat-users>
       </div>
       <div class="f-div"></div>
     </div>

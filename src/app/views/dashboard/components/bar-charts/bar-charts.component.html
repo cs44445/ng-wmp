@@ -1,6 +1,10 @@
 <div class="e-charts">
-  <div class="e-charts-box" :id="elId"></div>
+  <div class="e-charts-box" [id]="elId" ></div>
   <i :class="[isPage.previous?'i-left':'i-left-disable']" (click)="leftClick()"></i>
   <i :class="[isPage.next?'i-right':'i-right-disable']" (click)="rightClick()"></i>
-  <span class="x-tips">{{ echartsData.filterOpt.isWeekly ? 'Week' : 'Month' }}</span>
+  <span class="x-tips" *ngIf="echartsData.filterOpt">{{ echartsData.filterOpt.isWeekly ? 'Week' : 'Month' }}</span>
 </div>
+
+<!-- <div id="main" style="width: 600px;height:400px;"></div> -->
+
+<!-- <div echarts [options]="chartOption" class="demo-chart"></div> -->

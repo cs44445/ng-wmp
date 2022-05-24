@@ -1,4 +1,4 @@
-import { BarOption, EchartsData } from '../services/type/echarts.type'
+import { EchartsData } from '../services/type/echarts.type'
 
 export const echartsSettings = {    // 全局配置
   xAxis: {

@@ -24,8 +24,8 @@
         </div>
         <div class="item-btn">
           <div class="f-between">
-            <button nz-button [nzSize]="'small'" [class.btn-active]="isDay" (click)="isDayClick">Day</button>
-            <button nz-button [nzSize]="'small'" [class.btn-active]="!isDay" (click)="isDayClick">Month</button>
+            <button nz-button [nzSize]="'small'" [class.btn-active]="isDay" (click)="isDayClick()">Day</button>
+            <button nz-button [nzSize]="'small'" [class.btn-active]="!isDay" (click)="isMonthClick()">Month</button>
           </div>
         </div>
       </div>
@@ -42,7 +42,8 @@
 
     <div class="chart-box">
       <div class="chart-content wu-left">
-        <app-bar-charts [echartsData]="echartsData"></app-bar-charts>
+        <!-- <app-bar-charts [echartsData]="echartsData" [whatModule]="'WechatUsers'"></app-bar-charts> -->
+        <app-bar-charts [whatModule]="'WechatUsers'"></app-bar-charts>
 
 
 

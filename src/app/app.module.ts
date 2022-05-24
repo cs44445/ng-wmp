@@ -31,6 +31,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { PageHeaderModule } from './layout/components/page-header/page-header.module';
 import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 registerLocaleData(zh);
 
@@ -62,6 +63,9 @@ registerLocaleData(zh);
     SideBarModule,
     PageHeaderModule,
     NzDatePickerModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },

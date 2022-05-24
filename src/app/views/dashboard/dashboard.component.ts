@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { LocalStorageService } from 'src/app/services/business/local-storage.service';
+import { MessageService } from 'src/app/services/business/message.service';
 import { echartsData, echartsSettings } from '../../utils/dashboard-data'
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,6 @@ import { echartsData, echartsSettings } from '../../utils/dashboard-data'
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
   size = 'small'
   dateBtnChecked = {
     one: false,
@@ -16,18 +17,31 @@ export class DashboardComponent implements OnInit {
     customize: true,
   }
   date = null;
-  today = Date.now();
   pickerDate: string[] = []
   searchDate: string[] = []
-  myDate = moment(this.today).format('YYYY-MM-DD');
   switchValue = false
   echartsData = echartsData
   echartsSettings = echartsSettings
   isCompareDisabled = false
-  constructor() { }
+  isLoading = false
+  exportConfig = {
+    show: false,
+  }
+  datePickerOptions = {
+    disabledDate: (date: any) => new Date().getTime() < date.getTime(),
+  }
+  staffInfo: any
+
+
+  constructor(private ls: LocalStorageService, private message: MessageService) { }
 
   ngOnInit(): void {
-    // this.countDate(11)
+    this.countDate(11)
+  }
+
+  isGbsAdmin() {
+    const { baseRole } = this.ls.get('staffInfo', '')
+    return baseRole === "CS Admin";
   }
 
   oneClick() {
@@ -35,7 +49,8 @@ export class DashboardComponent implements OnInit {
     this.dateBtnChecked.three = false;
     this.dateBtnChecked.six = false;
     this.countDate(1);
-    // this.echartsData.filterOpt.isWeekly = true;
+    this.echartsData.filterOpt.isWeekly = true;
+    this.message.sendMessage(this.echartsData)
     this.clearCustomize();
   }
 
@@ -43,79 +58,50 @@ export class DashboardComponent implements OnInit {
     this.dateBtnChecked.three = true;
     this.dateBtnChecked.one = false;
     this.dateBtnChecked.six = false;
-    // this.echartsData.filterOpt.isWeekly = false;
+    this.echartsData.filterOpt.isWeekly = false;
+    this.message.sendMessage(this.echartsData)
     this.clearCustomize();
     this.countDate(2);
   }
 
   sixClick() {
     console.log('six');
-
     this.dateBtnChecked.six = true;
     this.dateBtnChecked.three = false;
     this.dateBtnChecked.one = false;
-    // this.echartsData.filterOpt.isWeekly = false;
+    this.echartsData.filterOpt.isWeekly = false;
+    this.message.sendMessage(this.echartsData)
     this.clearCustomize();
     this.countDate(5);
   }
 
-  // onChange(result: any) {
-  //   console.log("dddddd");
-  //   const startDate = this.pickerDate[0].split("-");
-  //   // 自定义搜索时间传月初
-  //   this.searchDate = [
-  //     startDate[0] + "-" + startDate[1] + "-01",
-  //     this.pickerDate[1],
-  //   ];
-  //   // 当为周数据时，自定义搜索时间选择什么就传什么
-  //   // if (this.echartsData.filterOpt.isWeekly) {
-  //   //   this.searchDate = [this.pickerDate[0], this.pickerDate[1]];
-  //   // }
-  //   // this.echartsData.filterOpt.dateValue = this.searchDate;
-  //   if (this.searchDate.length) {
-  //     this.customizeClick('non-paramas');
-  //   }
-  //   // 判断默认显示近一年数据是否跨年，如有跨年，禁用对比去年按钮
-  //   const starY = this.searchDate[0].split("-")[0];
-  //   const endY = this.searchDate[1].split("-")[0];
-  //   if (endY !== starY) {
-  //     // this.isCompareDisabled = true;
-  //     // this.echartsData.filterOpt.isCompareLast = false;
-  //   } else {
-  //     // this.isCompareDisabled = false;
-  //   }
-  //   console.log(this.pickerDate, 'pickerDate');
-  //   console.log(result, 'result');
-
-  // }
   onChange(result: any) {
-    console.log("dddddd");
     // const startDate = this.pickerDate[0].split("-");
     const start = moment(result[0]).format('YYYY-MM-DD');
     const end = moment(result[1]).format('YYYY-MM-DD');
-    // const startDate = start.split("-");
-    // // 自定义搜索时间传月初
-    // this.searchDate = [
-    //   startDate[0] + "-" + startDate[1] + "-01",
-    //   this.pickerDate[1],
-    // ];
+    const startDate = start.split("-");
+    // 自定义搜索时间传月初
+    this.searchDate = [
+      startDate[0] + "-" + startDate[1] + "-01",
+      this.pickerDate[1],
+    ];
     // 当为周数据时，自定义搜索时间选择什么就传什么
-    // if (this.echartsData.filterOpt.isWeekly) {
-    //   this.searchDate = [this.pickerDate[0], this.pickerDate[1]];
-    // }
-    // this.echartsData.filterOpt.dateValue = this.searchDate;
-    // if (this.searchDate.length) {
-    //   this.customizeClick('non-paramas');
-    // }
-    // // 判断默认显示近一年数据是否跨年，如有跨年，禁用对比去年按钮
-    // const starY = this.searchDate[0].split("-")[0];
-    // const endY = this.searchDate[1].split("-")[0];
-    // if (endY !== starY) {
-    //   // this.isCompareDisabled = true;
-    //   // this.echartsData.filterOpt.isCompareLast = false;
-    // } else {
-    //   // this.isCompareDisabled = false;
-    // }
+    if (this.echartsData.filterOpt.isWeekly) {
+      this.searchDate = [this.pickerDate[0], this.pickerDate[1]];
+    }
+    this.echartsData.filterOpt.dateValue = this.searchDate;
+    if (this.searchDate.length) {
+      this.customizeClick('non-paramas');
+    }
+    // 判断默认显示近一年数据是否跨年，如有跨年，禁用对比去年按钮
+    const starY = this.searchDate[0].split("-")[0];
+    const endY = this.searchDate[1].split("-")[0];
+    if (endY !== starY) {
+      this.isCompareDisabled = true;
+      this.echartsData.filterOpt.isCompareLast = false;
+    } else {
+      this.isCompareDisabled = false;
+    }
     this.pickerDate = [start, end]
     console.log(this.pickerDate, 'pickerDate');
     console.log(result, 'result');
@@ -135,15 +121,6 @@ export class DashboardComponent implements OnInit {
   clearCustomize() {
     this.dateBtnChecked.customize = false;
   }
-
-  // onChange(result: Date[]): void {
-  // onChange(result: any): void {
-  //   console.log('onChange: ', result);
-  // }
-
-  // getWeek(result: Date[]): void {
-  //   console.log('week: ', result.map(getISOWeek));
-  // }
 
   countDate(account: number) {
     const Dates = new Date();
@@ -181,25 +158,23 @@ export class DashboardComponent implements OnInit {
     this.pickerDate = [startTimes, endTimes];
     // 自定义搜索时间传月初
     this.searchDate = [startTimesSearch, endTimes];
-    // // 当为周数据时，自定义搜索时间选择什么就传什么
-    // if (this.echartsData.filterOpt.isWeekly) {
-    //   this.searchDate = [startTimes, endTimes];
-    // }
-    // this.echartsData.filterOpt.dateValue = this.searchDate;
-    // // 判断默认显示近一年数据是否跨年，如有跨年，禁用对比去年按钮
-    // let starY = Y;
-    // if (endY !== starY) {
-    //   this.isCompareDisabled = true;
-    //   this.echartsData.filterOpt.isCompareLast = false;
-    // } else if (endY === starY && endY && starY) {
-    //   this.isCompareDisabled = false;
-    //   this.echartsData.filterOpt.isCompareLast = false;
-    // } else {
-    //   this.isCompareDisabled = true;
-    //   this.echartsData.filterOpt.isCompareLast = false;
-    // }
-
-    // console.log("endY:", endY, "starY", starY);
+    // 当为周数据时，自定义搜索时间选择什么就传什么
+    if (this.echartsData.filterOpt.isWeekly) {
+      this.searchDate = [startTimes, endTimes];
+    }
+    this.echartsData.filterOpt.dateValue = this.searchDate;
+    // 判断默认显示近一年数据是否跨年，如有跨年，禁用对比去年按钮
+    let starY = Y;
+    if (endY !== starY) {
+      this.isCompareDisabled = true;
+      this.echartsData.filterOpt.isCompareLast = false;
+    } else if (endY === starY && endY && starY) {
+      this.isCompareDisabled = false;
+      this.echartsData.filterOpt.isCompareLast = false;
+    } else {
+      this.isCompareDisabled = true;
+      this.echartsData.filterOpt.isCompareLast = false;
+    }
+    console.log("endY:", endY, "starY", starY);
   }
-
 }

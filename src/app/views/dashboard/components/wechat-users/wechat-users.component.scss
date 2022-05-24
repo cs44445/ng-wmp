@@ -90,6 +90,11 @@
   display: flex;
   // justify-content: space-between;
   align-items: center;
+
+  .btn-active {
+    background: rgba(51, 0, 0, 0.08) !important;
+    color: #330000 !important;
+  }
 }
 
 .modular-box {

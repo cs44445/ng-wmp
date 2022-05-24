@@ -23,7 +23,7 @@ import { WechatUsersComponent } from './components/wechat-users/wechat-users.com
     NzDatePickerModule,
     FormsModule,
     NzSwitchModule,
-    WechatUsersModule
+    WechatUsersModule,
   ],
   exports: [
     WechatUsersComponent
