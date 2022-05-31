@@ -1123,14 +1123,14 @@ export class BarChartsComponent implements OnInit, AfterViewInit, OnDestroy {
         };
       }
     }
-    // const elId = document.getElementById(this.elId) as HTMLCanvasElement
+    const elId = document.getElementById(this.elId) as HTMLCanvasElement
     // const elId = document.getElementById(this.elId) as HTMLElement
-    // this.myChart = echarts.init(elId);
+    this.myChart = echarts.init(elId);
     // this.myChart = echarts.init('main-test');
     // this.myChart = echarts.init(document.getElementById(this.elId));
-    // this.myChart.clear();
-    // this.myChart.setOption(option);
-    // this.myChart.resize();
+    this.myChart.clear();
+    this.myChart.setOption(option);
+    this.myChart.resize();
   }
 
   ngOnDestroy(): void {

@@ -1,0 +1,33 @@
+.paginition--size,
+.paginition--pager {
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: Tahoma;
+  color: #666666;
+}
+
+.paginition--container,
+.paginition--pager {
+  display: flex;
+  align-items: center;
+}
+
+.paginition--pager {
+  min-width: 130px;
+  justify-content: space-between;
+
+  .el--icon {
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .paginition--jump {
+    margin: 0 10px;
+    width: 48px;
+  }
+
+  .ant-input {
+    width: 40px !important;
+    margin: 0 10px;
+  }
+}

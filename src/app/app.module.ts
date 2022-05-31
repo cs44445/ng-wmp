@@ -33,6 +33,14 @@ import { PageHeaderComponent } from './layout/components/page-header/page-header
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NgxEchartsModule } from 'ngx-echarts';
 
+import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd/core/config';
+import { NzCommonModule } from './shared/nz-common.module';
+const ngZorroConfig: NzConfig = {
+  // 注意组件名称没有 nz 前缀
+  message: { nzTop: '50%', nzDuration: 0 },
+  notification: { nzTop: '50%', nzDuration: 0 }
+};
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -62,13 +70,15 @@ registerLocaleData(zh);
     NzAvatarModule,
     SideBarModule,
     PageHeaderModule,
-    NzDatePickerModule,
+    // NzDatePickerModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    NzCommonModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
+    { provide: NZ_CONFIG, useValue: ngZorroConfig },
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptorsService,

@@ -1,0 +1,16 @@
+<div class="paginition--container">
+  <a class="paginition--size">{{ config.page_size }} Entries / Page</a>
+  <div class="paginition--pager">
+    <i nz-icon nzType="double-left" nzTheme="outline" (click)="jump(1)"></i>
+    <i nz-icon nzType="left" nzTheme="outline" (click)="jumpOnePage()"></i>
+    <a>{{ config.page_index }} / {{ totalPage }} page</a>
+    <i nz-icon nzType="right" nzTheme="outline" (click)="goOnePage()"></i>
+    <i nz-icon nzType="double-right" nzTheme="outline" (click)="jump(totalPage)"></i>
+  </div>
+  <div class="paginition--pager">
+    <a>Go To</a>
+    <input type="text" nz-input name="name" [(ngModel)]="jump_to_page" />
+    <a>page</a>
+    <button nz-button (click)="jump(jump_to_page)" nzType="link">Go</button>
+  </div>
+</div>

@@ -4,13 +4,14 @@
     <ul nz-menu nzTheme="dark" nzMode="inline" *ngFor="let item of pathList">
       <li nz-menu-item *ngIf="!item.children; else childrenItem">
         <i nz-icon nzType="file"></i>
-        <span (click)="changePath(item.path)">{{item.path}}</span>
+        <span (click)="changePath(item.path)">{{item.title}}</span>
       </li>
 
       <ng-template #childrenItem>
         <li nz-submenu [nzTitle]="item.title" [nzIcon]="item.icon">
           <ul *ngFor="let child of item.children">
-            <li nz-menu-item (click)="changePath(child.path)">{{child.path}}</li>
+            <li nz-menu-item *ngIf="item.children" style="padding-left: 80px" (click)="changePath(child.path)">
+              {{child.title}}</li>
           </ul>
         </li>
       </ng-template>

@@ -16,7 +16,6 @@ export class SideBarComponent implements OnInit {
   faChange() {
     debugger
     this.visible = !this.visible
-    console.log(this.visible, '===============father');
   }
 
 }

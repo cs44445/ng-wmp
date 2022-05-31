@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { WechatUsersModule } from './components/wechat-users/wechat-users.module';
 import { WechatUsersComponent } from './components/wechat-users/wechat-users.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import { WechatUsersComponent } from './components/wechat-users/wechat-users.com
     FormsModule,
     NzSwitchModule,
     WechatUsersModule,
+    SharedModule
   ],
   exports: [
-    WechatUsersComponent
+    WechatUsersComponent,
   ]
 })
 export class DashboardModule { }

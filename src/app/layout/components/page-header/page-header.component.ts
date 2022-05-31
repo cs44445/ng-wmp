@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-header',
@@ -8,7 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PageHeaderComponent implements OnInit {
   @Input() title = 'WeChat KPI Dashboard'
   opened = true
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    console.log(this.route.url, 'route');
+
+  }
 
   ngOnInit(): void {
   }

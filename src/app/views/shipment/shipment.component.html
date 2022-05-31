@@ -1,1 +1,105 @@
-<p>shipment works!</p>
+<div>
+  <!-- <page-header title="WeChat Payment Information">
+  </page-header> -->
+  <div class="page--container">
+    <div class="filter--container filter-box">
+      <div class="filter--container">
+        <div class="filter--condition">
+          <svg-icon src="../../../assets/icons/svg/filter.svg" [svgClass]="'user-icon'">
+          </svg-icon>
+          <span class="filter--label">Filter</span>
+        </div>
+        <div class="filter--condition">
+          <nz-select [(ngModel)]="condition.paymentStatus" nzAllowClear nzPlaceHolder="Payment Status"
+            (ngModelChange)="searchByFilter($event)">
+            <nz-option *ngFor="let option of payStatusOPtions" [nzValue]="option.value" [nzLabel]="option.label">
+            </nz-option>
+          </nz-select>
+        </div>
+        <div class="filter--condition">
+          <nz-range-picker [(ngModel)]="condition.date" (ngModelChange)="searchByFilter($event)" nzFormat="YYYY-MM-dd">
+          </nz-range-picker>
+        </div>
+      </div>
+      <div class="filter--condition">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input type="text" [(ngModel)]="condition.searchTerm" nz-input
+            placeholder="Search Tracking No. /  Nickname / UPS ID" />
+        </nz-input-group>
+        <ng-template #suffixIconSearch class="shipment-search-icon">
+          <i nz-icon nzType="search" (click)="searchByFilter($event)"></i>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- 列表 -->
+    <div class="common-tab" style="over-flow: auto;">
+      <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData" nzBordered [nzShowPagination]="false"
+        (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" [nzPageSize]="50" [nzScroll]="{ y: '240px' }">
+        <thead>
+          <tr>
+            <th nzWidth="60px" [(nzChecked)]="checked" [nzLeft]="fixedColumn" [nzIndeterminate]="indeterminate"
+              (nzCheckedChange)="onAllChecked($event)"></th>
+            <th *ngFor="let item of columns">{{item.label}}</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="listOfData.length>0 else NoData">
+          <tr *ngFor="let data of rowSelectionTable.data; index as id">
+            <td [nzChecked]="setOfCheckedId.has(data.trackingNo)"
+              (nzCheckedChange)="onItemChecked(data.trackingNo, $event)"></td>
+            <td>{{ id+1 }}</td>
+            <td>{{ data.trackingNo }}</td>
+            <td>{{ data.nickname }}</td>
+            <td>{{ data.upsId }}</td>
+            <td>{{ data.issuedDate }}</td>
+            <td>{{ data.paymentFee === 0 ? '-' : ('￥' + data.paymentFee) }}</td>
+            <td>{{ data.paymentStatus }}</td>
+            <td (click)="showDetail(data)" class="item_info">
+              <svg-icon src="../../../assets/icons/svg/view-information.svg"></svg-icon>
+              View Payment Information
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <ng-template #NoData>
+      <div class="empty-text">No data</div>
+    </ng-template>
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <div class="modal_box">
+          <div>
+            <span class="row_title">Refund Request Date</span>
+            <span>{{dataItem.refundRequestDate ? refoundData(dataItem.refundRequestDate) : '-'}}</span>
+          </div>
+          <div>
+            <span class="row_title">UPS ID</span>
+            <span>{{dataItem.upsId}}</span>
+          </div>
+          <div>
+            <span class="row_title">Tracking No.</span>
+            <span>{{dataItem.trackingNo}}</span>
+          </div>
+          <div>
+            <span class="row_title">Transaction Amount</span>
+            <span>{{dataItem.paymentFee === 0 ? '-' : ('￥' + dataItem.paymentFee)}}</span>
+          </div>
+          <div>
+            <span class="row_title">PRN </span>
+            <span>{{dataItem.prnNumber? dataItem.prnNumber :'-'}}</span>
+          </div>
+          <div>
+            <span class="row_title">GUID</span>
+            <span>{{dataItem.guid}}</span>
+          </div>
+        </div>
+      </ng-container>
+    </nz-modal>
+
+    <!-- 分页 -->
+    <app-pagination (currentChange)="currentChange($event)" [config]="config"></app-pagination>
+
+    <!-- <app-common-table></app-common-table> -->
+
+  </div>
+</div>

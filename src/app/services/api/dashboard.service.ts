@@ -4,14 +4,12 @@ import { stringify } from 'qs';
 import { map, Observable } from 'rxjs';
 import { ActiveUserInfo, ActiveUsers, ExportArg, GlobalFilter, HitFrequency, KpiScoresArg, KpiScoresData, OperationArg, OperationLogData, RandomRatingsData, RatingsArg, RevenueArgs, RevenueFiterInfo, WechatUserInfo, WechatUsers } from '../type/dashboard.type';
 import { Base } from '../type/user.type';
-// import download from '@/request/download'
+import { serviceUrl, kpiUrl } from './baseUrl'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  readonly kpiUrl = '/service/misc-wmp-kpi/api/v1/kpi/'
-  readonly userUrl = '/service/misc-wmp-user/api/v1/'
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +21,7 @@ export class DashboardService {
   // 获取当前关注量、活跃用户数、粘性比
   operatingInfo(): Observable<ActiveUsers> {
     return this.http
-      .get<Base<ActiveUsers>>(`${this.kpiUrl}wechat/operating/info`)
+      .get<Base<ActiveUsers>>(`${serviceUrl}wechat/operating/info`)
       .pipe(map(res => res.data))
   }
 
@@ -31,7 +29,7 @@ export class DashboardService {
   exportKPI(args: ExportArg) {
     const params = this.setParams(args)
     return this.http
-      .get<Base<any>>(`${this.userUrl}api/v1/kpi/exports`, { params })
+      .get<Base<any>>(`${kpiUrl}api/v1/kpi/exports`, { params })
       .pipe(map(res => res))
   }
 
@@ -39,7 +37,7 @@ export class DashboardService {
   wechatUsers(args: WechatUsers): Observable<WechatUserInfo[]> {
     const params = this.setParams(args)
     return this.http
-      .get<Base<WechatUserInfo[]>>(`${this.kpiUrl}statistics/wechat/users`, { params })
+      .get<Base<WechatUserInfo[]>>(`${serviceUrl}statistics/wechat/users`, { params })
       .pipe(map(res => res.data))
   }
 
@@ -47,14 +45,14 @@ export class DashboardService {
   activeUsersAndStickiness(args: WechatUsers): Observable<ActiveUserInfo[]> {
     const params = this.setParams(args)
     return this.http
-      .get<Base<ActiveUserInfo[]>>(`${this.kpiUrl}statistics/activity-stickiness`, { params })
+      .get<Base<ActiveUserInfo[]>>(`${serviceUrl}statistics/activity-stickiness`, { params })
       .pipe(map(res => res.data))
   }
 
   // Operation Data
   operationLog(args: OperationArg): Observable<OperationLogData> {
     return this.http
-      .post<Base<OperationLogData>>(`${this.kpiUrl}operation/log`, args)
+      .post<Base<OperationLogData>>(`${serviceUrl}operation/log`, args)
       .pipe(map(res => res.data))
   }
 
@@ -62,28 +60,28 @@ export class DashboardService {
   // hitFrequency(args: Exclude<OperationArg, 'dataType'>): Observable<any> {
   hitFrequency(args: HitFrequency): Observable<any> {
     return this.http
-      .post<Base<any>>(`${this.kpiUrl}operation/hit-frequency`, args)
+      .post<Base<any>>(`${serviceUrl}operation/hit-frequency`, args)
       .pipe(map(res => res.data))
   }
 
   // Repeat shipper
   repeatShipper(args: GlobalFilter): Observable<any> {
     return this.http
-      .post<Base<any>>(`${this.kpiUrl}operation/repeat-shipper`, args)
+      .post<Base<any>>(`${serviceUrl}operation/repeat-shipper`, args)
       .pipe(map(res => res.data))
   }
 
   // 查询 Revenue KPI
   kpiRevenue(args: RevenueArgs): Observable<any> {
     return this.http
-      .post<Base<any>>(`${this.kpiUrl}revenue`, args)
+      .post<Base<any>>(`${serviceUrl}revenue`, args)
       .pipe(map(res => res.data))
   }
 
   // 查询 Revenue 搜索框字典
   filtersRevenue(): Observable<RevenueFiterInfo> {
     return this.http
-      .get<Base<RevenueFiterInfo>>(`${this.kpiUrl}filters/revenue`)
+      .get<Base<RevenueFiterInfo>>(`${serviceUrl}filters/revenue`)
       .pipe(map(res => res.data))
   }
 
@@ -91,7 +89,7 @@ export class DashboardService {
   randomRatings(args: RatingsArg): Observable<RandomRatingsData> {
     const params = this.setParams(args)
     return this.http
-      .get<Base<RandomRatingsData>>(`${this.userUrl}customer/satisfaction/kpi/random/ratings`, { params })
+      .get<Base<RandomRatingsData>>(`${kpiUrl}customer/satisfaction/kpi/random/ratings`, { params })
       .pipe(map(res => res.data))
   }
 
