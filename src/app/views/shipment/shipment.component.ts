@@ -4,6 +4,7 @@ import { PaymentService } from 'src/app/services/api/payment.service';
 import * as moment from 'moment';
 import { PayStatusOPtionsItem, StatusItem, Condition } from 'src/app/services/type/payment.type';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { forkJoin } from 'rxjs';
 interface ItemData {
   id: number;
   trackingNo: string,
@@ -12,8 +13,6 @@ interface ItemData {
   issuedDate: string,
   paymentFee: number,
   paymentStatus: string;
-  // age: number;
-  // address: string;
 }
 
 interface DataItem {
@@ -22,7 +21,7 @@ interface DataItem {
   upsId: string,
   issuedDate: string,
   paymentFee: number,
-  paymentStatus: string;
+  paymentStatus: string
 }
 @Component({
   selector: 'app-shipment',
@@ -93,7 +92,7 @@ export class ShipmentComponent implements OnInit {
     selectionChange: null,
   }
   headHeight = 167
-  selectedTrackingNos = []
+  selectedTrackingNos: any[] = []
   date = null
   listOfData: ItemData[] = []
   checked = false;
@@ -110,6 +109,7 @@ export class ShipmentComponent implements OnInit {
     total: 50,
   }
 
+
   constructor(
     private payServe: PaymentService,
     private message: NzMessageService,
@@ -118,9 +118,40 @@ export class ShipmentComponent implements OnInit {
 
   }
 
+  updateData(): void {
+    const id = this.message.loading('').messageId;
+    const data = {
+      ...this.condition,
+      fromDate: this.condition.date && this.condition.date.length ? moment(this.condition.date[0]).format('YYYY-MM-DD') : undefined,
+      toDate: this.condition.date && this.condition.date.length ? moment(this.condition.date[1]).format('YYYY-MM-DD') : undefined,
+      pageNum: this.options.page_index,
+      pageSize: this.options.page_size
+    }
+    // 删除this.condition中的date参数
+    delete data['date']
+    forkJoin([
+      this.payServe.shipmentStatus(),
+      this.payServe.weChatPayShipment(data)
+    ]).subscribe(([shipmentStatusRes, weChatPayShipmentRes]) => {
+      this.message.remove(id)
+      // 处理statusList
+      this.payStatusOPtions = shipmentStatusRes.Status.map((v: StatusItem) => ({
+        label: v.description,
+        value: v.value
+      }))
+
+      // 处理paymentList
+      this.listOfData = weChatPayShipmentRes.records
+      // Object.assign({}, this.defaultConfig, this.options)
+      // this.options.total = parseInt(res.total)
+      this.config.total = parseInt(weChatPayShipmentRes.total)
+      console.log(this.config, ' fathter this.config');
+      this.cdr.markForCheck()
+    })
+  }
+
   ngOnInit(): void {
-    this.getData()
-    this.getList()
+    this.updateData()
   }
 
   updateCheckedSet(id: string, checked: boolean): void {
@@ -134,6 +165,18 @@ export class ShipmentComponent implements OnInit {
   onItemChecked(id: string, checked: boolean): void {
     this.updateCheckedSet(id, checked);
     this.refreshCheckedStatus();
+
+    // 点击勾选添加到数组
+    const listItem = this.listOfCurrentPageData.filter(item => item.trackingNo === id)
+    if (this.selectedTrackingNos.includes(listItem)) return
+    if (checked) {
+      this.selectedTrackingNos.push(...listItem)
+    } else {
+      const index = this.selectedTrackingNos.findIndex(item => item.trackingNo === id)
+      this.selectedTrackingNos.splice(index, 1)
+    }
+    console.log(this.listOfCurrentPageData, 'single');
+    console.log(this.selectedTrackingNos, 'this.selectedTrackingNos');
   }
 
   onAllChecked(value: boolean): void {
@@ -149,17 +192,6 @@ export class ShipmentComponent implements OnInit {
   refreshCheckedStatus(): void {
     this.checked = this.listOfCurrentPageData.every(item => this.setOfCheckedId.has(item.trackingNo));
     this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.trackingNo)) && !this.checked;
-  }
-
-  getData() {
-    const id = this.message.loading('').messageId;
-    this.payServe.shipmentStatus().subscribe(res => {
-      this.message.remove(id)
-      this.payStatusOPtions = res.Status.map((v: StatusItem) => ({
-        label: v.description,
-        value: v.value
-      }))
-    })
   }
 
   searchByFilter(e: any) {
@@ -230,5 +262,35 @@ export class ShipmentComponent implements OnInit {
   handleCancel(): void {
     this.isVisible = false;
   }
+
+  // 导出
+  export() {
+    if (!this.selectedTrackingNos.length) {
+      this.createMessage('error')
+    }
+  }
+
+  createMessage(type: string): void {
+    this.message.create(type, 'No data selected', { nzDuration: 2000 })
+    return
+  }
+
+
+
+  // exportList() {
+  //   if (!this.selectedTrackingNos.length) {
+  //     message({ type: 'error', message: 'No data selected' })
+  //     return
+  //   }
+  //   this.isLoading = true
+  //   const params = {
+  //     trackingNos: this.selectedTrackingNos.join(',')
+  //   }
+  //   exportShipment(params).then(() => {
+  //     this.isLoading = false
+  //   }).catch(() => {
+  //     this.isLoading = false
+  //   })
+  // }
 
 }

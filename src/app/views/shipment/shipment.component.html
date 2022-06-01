@@ -95,7 +95,11 @@
         </div>
       </ng-container>
     </nz-modal>
-
+    <div nz-row>
+      <div nz-col nzSpan="12" nzOffset="22">
+        <button nz-button nzType="primary" class="shipment_btn" (click)="export()">Export</button>
+      </div>
+    </div>
     <!-- 分页 -->
     <app-pagination (currentChange)="currentChange($event)" [config]="config"></app-pagination>
 
