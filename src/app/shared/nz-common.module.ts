@@ -11,6 +11,11 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 const nzModules = [
   NzButtonModule,
@@ -24,6 +29,11 @@ const nzModules = [
   NzInputModule,
   NzSelectModule,
   NzMessageModule,
+  NzRateModule,
+  NzTabsModule,
+  NzRadioModule,
+  NzCollapseModule,
+  NzToolTipModule
 ]
 @NgModule({
   imports: [

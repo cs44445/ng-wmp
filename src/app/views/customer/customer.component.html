@@ -1,0 +1,26 @@
+<div class="global--container">
+  <!-- <page-header class="fixed--header" title="Customer Satisfaction"> -->
+  <div class="top--line"></div>
+  <div class="top--tab">
+    <!-- <div class="top--tab__item" :class="{ 'active': ratingType !== '03' }" @click="switchTopTab('00')">Shipper / Consignee Rating</div> -->
+    <!-- <div class="top--tab__item" :class="{ 'active': ratingType === '03' }" @click="switchTopTab('03')">WeChat OA Rating</div> -->
+  </div>
+  <!-- </page-header> -->
+
+  <div class="page--container">
+    <nz-tabset>
+      <nz-tab nzTitle="All" (nzSelect)="changeTab()"></nz-tab>
+      <nz-tab nzTitle="Shipper Rating" (nzSelect)="changeTab('01')"></nz-tab>
+      <nz-tab nzTitle="Consignee Rating" (nzSelect)="changeTab('02')"></nz-tab>
+    </nz-tabset>
+    <div class="page--content">
+      <app-score [score]="rate" [title]="'Comprehensive Satisfaction Evaluation Star'"></app-score>
+      <app-star-rate></app-star-rate>
+      <!-- <StarRate ref="starRate" :ratingType='ratingType'></StarRate> -->
+      <!-- <Rating ref="ratingList" :ratingType='ratingType'></Rating> -->
+    </div>
+  </div>
+  <div class="rating--stickey__footer">
+    <!-- <el-button class="rating--export" type="primary" size="mini" @click="exportList">Export</el-button> -->
+  </div>
+</div>

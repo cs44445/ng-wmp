@@ -1,0 +1,134 @@
+.container-- {
+  margin-bottom: 30px;
+}
+
+.title--container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.score--container {
+  display: flex;
+  align-items: stretch;
+
+  .score--item__col {
+    margin-right: 20px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    background-color: rgba(242, 242, 242, .4);
+    display: flex;
+    height: 300px;
+    align-items: center;
+    overflow: hidden;
+
+    .ve-pie,
+    .ve-bar {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.tag--container {
+  padding: 10px;
+}
+
+.tag--list {
+  flex: 1 1 auto;
+  height: 280px;
+  overflow: auto;
+
+  .tag--item {
+    margin-top: 12px;
+    background: rgba(51, 0, 0, 0.08);
+    border-radius: 2px;
+
+    ::ng-deep .ant-collapse-header {
+      color: #330000;
+    }
+  }
+
+  .tag--title {
+    margin-top: 12px;
+    padding: 0 12px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    background: rgba(51, 0, 0, 0.08);
+    border-radius: 2px;
+    color: #330000;
+
+
+    &.active {
+      background: #330000;
+      color: #FFF;
+    }
+
+    .tag--count {
+      font-weight: 600;
+    }
+  }
+
+  .tag--content {
+    display: flex;
+    // padding: 12px;
+    flex-flow: row wrap;
+    align-items: flex-start;
+
+    .tag-item {
+      // flex: 0 0 50%;
+
+      flex: 0 0 50%;
+      color: #333333;
+      font-size: 12px;
+      line-height: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.chart--pie {
+  position: relative;
+  text-align: center;
+
+  .chart--pie__date {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: Tahoma;
+    color: #666;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .color--list {
+    margin-right: -30px;
+
+    .color--item {
+      margin-top: 18px;
+      padding-right: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .color--item__bg {
+      margin-right: 12px;
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+
+    .color--item__text {
+      color: #666666;
+    }
+  }
+}

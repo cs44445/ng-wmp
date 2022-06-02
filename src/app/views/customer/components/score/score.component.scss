@@ -1,0 +1,19 @@
+.score--container {
+  margin-bottom: 10px;
+  display: flex;
+  height: 102px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(242, 242, 242, .4);
+
+  .score {
+    margin-right: 24px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #330000;
+  }
+
+  & ::ng-deep .anticon {
+    font-size: 48px;
+  }
+}

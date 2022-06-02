@@ -1,0 +1,7 @@
+.global--container {
+  .page--container {
+    ::ng-deep .ant-tabs-nav-wrap {
+      border-bottom: 1px solid #330000;
+    }
+  }
+}

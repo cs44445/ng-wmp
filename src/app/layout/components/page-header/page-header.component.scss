@@ -19,19 +19,19 @@
     font-weight: bold;
     color: #330000;
   }
-}
 
-::ng-deep .anticon {
-  margin-right: 12px;
-  font-size: 24px;
-  cursor: pointer;
-  color: rgba(51, 0, 0, 1);
+  ::ng-deep .anticon {
+    margin-right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: rgba(51, 0, 0, 1);
 
-  &:hover {
-    color: rgba(51, 0, 0, 0.6);
-  }
+    &:hover {
+      color: rgba(51, 0, 0, 0.6);
+    }
 
-  &.close {
-    transform: rotate(180deg);
+    &.close {
+      transform: rotate(180deg);
+    }
   }
 }

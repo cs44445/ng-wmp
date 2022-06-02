@@ -35,6 +35,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 
 import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd/core/config';
 import { NzCommonModule } from './shared/nz-common.module';
+
 const ngZorroConfig: NzConfig = {
   // 注意组件名称没有 nz 前缀
   message: { nzTop: '50%', nzDuration: 0 },

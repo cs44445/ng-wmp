@@ -1,0 +1,36 @@
+<div class="container--">
+  <div class="title--container">
+    <app-page-title [title]="'Comment Star Rate'"></app-page-title>
+    <nz-radio-group [(ngModel)]="radioValue" (ngModelChange)="changeRadio($event)">
+      <label nz-radio [nzValue]="o.value" *ngFor="let o of options">{{ o.label }}</label>
+    </nz-radio-group>
+  </div>
+  <div nz-row class="score--container">
+    <div nz-col nzSpan="6" class="score--item__col tag--container">
+      <nz-collapse nzAccordion class="tag--list">
+        <nz-collapse-panel *ngFor="let header of headerList" [nzHeader]="header.tagRatingCategory" [nzActive]="false"
+          [nzExtra]="extraTpl" nzShowArrow="false" class="tag--item">
+          <nz-collapse>
+            <div *ngFor="let tag of header.tagRatingList" class="tag--content">
+              <div>
+                <span [nzTooltipTitle]="tag.tagCode +' '+ tag.tagName" [nzTooltipPlacement]="['topLeft', 'leftTop']"
+                  nz-tooltip class="tag-item">
+                  {{tag.tagCode}}{{tag.tagName}}
+                </span>
+              </div>
+            </div>
+          </nz-collapse>
+          <!--额外添加评分 -->
+          <ng-template #extraTpl>
+            ({{header.tagRatingCount}})
+          </ng-template>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+    <div nz-col nzSpan="11" class="chart--pie score--item__col">
+      11
+    </div>
+    <div nz-col nzSpan="7" class="chart--bar score--item__col">col-8</div>
+  </div>
+
+</div>

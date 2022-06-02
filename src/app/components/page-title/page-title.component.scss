@@ -1,0 +1,19 @@
+.comment--title {
+  margin: 14px 0;
+  padding-left: 16px;
+  position: relative;
+  font-size: 14px;
+  color: #330000;
+  font-weight: 650;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    background: linear-gradient(141deg, #C67D30 0%, #330000 100%);
+    width: 4px;
+    border-radius: 8px;
+  }
+}
