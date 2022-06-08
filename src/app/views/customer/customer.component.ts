@@ -8,8 +8,8 @@ const All = '00'
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent implements OnInit {
-  // ratingType?: string
-  ratingType?: AverageScore
+  // ratingType!: AverageScore
+  ratingType = All
   rate = 0
   constructor(
     private cusHttp: CustomerService
@@ -26,8 +26,7 @@ export class CustomerComponent implements OnInit {
   }
 
   changeTab(type?: string) {
-    this.ratingType = { ratingType: type }
-    this.cusHttp.avgScores(this.ratingType).subscribe(res => {
+    this.cusHttp.avgScores({ ratingType: type }).subscribe(res => {
       this.rate = res
     })
   }

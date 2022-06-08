@@ -23,8 +23,9 @@ export class LoginTempComponent implements OnInit {
     azureId: '',
     email: '',
     createTime: '',
-    id: ''
+    id: '',
   }
+  permissions = []
 
   constructor(
     private fb: FormBuilder,
@@ -53,7 +54,7 @@ export class LoginTempComponent implements OnInit {
         this.ls.set('token', accessToken)
 
         this.userServe.staffInfo().subscribe(res => {
-          const { name, role, azureId, email, createTime, id } = res
+          const { name, role, azureId, email, createTime, id, permissions } = res
           this.staffInfo = {
             staffName: name,
             roleName: role.name,
@@ -64,7 +65,13 @@ export class LoginTempComponent implements OnInit {
             id
           }
           this.ls.set('staffInfo', this.staffInfo)
+
+          this.permissions = permissions
+            .map((v: any) => { return [v, ...v.sub] })
+            .reduce((a: any, b: any) => { return a.concat((b)) })
+          this.ls.set('permissions', this.permissions)
         })
+
         this.router.navigateByUrl('/dashboard')
       }
     })

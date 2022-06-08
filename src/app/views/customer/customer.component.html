@@ -1,5 +1,6 @@
 <div class="global--container">
   <!-- <page-header class="fixed--header" title="Customer Satisfaction"> -->
+  <app-page-header [title]="'Customer Satisfaction'"></app-page-header>
   <div class="top--line"></div>
   <div class="top--tab">
     <!-- <div class="top--tab__item" :class="{ 'active': ratingType !== '03' }" @click="switchTopTab('00')">Shipper / Consignee Rating</div> -->
@@ -16,8 +17,7 @@
     <div class="page--content">
       <app-score [score]="rate" [title]="'Comprehensive Satisfaction Evaluation Star'"></app-score>
       <app-star-rate></app-star-rate>
-      <!-- <StarRate ref="starRate" :ratingType='ratingType'></StarRate> -->
-      <!-- <Rating ref="ratingList" :ratingType='ratingType'></Rating> -->
+      <app-rating-list [ratingType]="ratingType"></app-rating-list>
     </div>
   </div>
   <div class="rating--stickey__footer">

@@ -14,7 +14,7 @@ export class LocalStorageService {
     localStorage.setItem(`${PREFFIX}-${key}`, JSON.stringify(value))
   }
 
-  get(key: string, defaultValue: any) {
+  get(key: string, defaultValue?: any) {
     const item = localStorage.getItem(`${PREFFIX}-${key}`) || defaultValue
     let data
     try {

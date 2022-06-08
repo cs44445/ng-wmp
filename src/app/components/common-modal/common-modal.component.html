@@ -1,0 +1,13 @@
+<p>common-modal works!</p>
+<!-- <el-dialog :title="options.title" :visible.sync="options.show" :width="options.width" :destroy-on-close="true"
+  :close-on-click-modal="options.closeOnClickModal" @close="options.close">
+  <slot />
+</el-dialog> -->
+
+<nz-modal [(nzVisible)]="isVisible" [nzTitle]="title" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <p>Content one</p>
+    <p>Content two</p>
+    <p>Content three</p>
+  </ng-container>
+</nz-modal>

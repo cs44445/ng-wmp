@@ -6,16 +6,16 @@ import { CustomerComponent } from './customer.component';
 import { ScoreComponent } from './components/score/score.component';
 import { NzCommonModule } from 'src/app/shared/nz-common.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PageTitleComponent } from 'src/app/components/page-title/page-title.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StarRateComponent } from './components/star-rate/star-rate.component';
-
-
+import { RatingListComponent } from './components/rating-list/rating-list.component';
+import { DirectivesModule } from 'src/app/directives/directives.module';
 @NgModule({
   declarations: [
     CustomerComponent,
     ScoreComponent,
-    StarRateComponent
+    StarRateComponent,
+    RatingListComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +23,8 @@ import { StarRateComponent } from './components/star-rate/star-rate.component';
     NzCommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    DirectivesModule
   ]
 })
 export class CustomerModule { }

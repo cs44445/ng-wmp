@@ -25,7 +25,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     NzSwitchModule,
     WechatUsersModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     WechatUsersComponent,

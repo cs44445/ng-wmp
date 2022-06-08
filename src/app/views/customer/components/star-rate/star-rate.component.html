@@ -2,7 +2,10 @@
   <div class="title--container">
     <app-page-title [title]="'Comment Star Rate'"></app-page-title>
     <nz-radio-group [(ngModel)]="radioValue" (ngModelChange)="changeRadio($event)">
-      <label nz-radio [nzValue]="o.value" *ngFor="let o of options">{{ o.label }}</label>
+      <label nz-radio nzValue="01">Last 7 Days</label>
+      <label nz-radio nzValue="02">Last 15 Days</label>
+      <label nz-radio nzValue="03">Last 30 Days</label>
+      <label nz-radio nzValue="04">Last 6 Months</label>
     </nz-radio-group>
   </div>
   <div nz-row class="score--container">
@@ -28,9 +31,11 @@
       </nz-collapse>
     </div>
     <div nz-col nzSpan="11" class="chart--pie score--item__col">
-      11
+      <!-- <span class="chart--pie__date">{{ formattedDateStr }}</span> -->
+      <div id="main" style="width:700px;height:300px"></div>
     </div>
-    <div nz-col nzSpan="7" class="chart--bar score--item__col">col-8</div>
+    <div nz-col nzSpan="7" class="chart--bar score--item__col">
+      <div id="bar" style="width:448px;height:300px"></div>
+    </div>
   </div>
-
 </div>

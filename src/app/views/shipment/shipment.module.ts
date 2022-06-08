@@ -13,19 +13,16 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
 // import { SharedModule } from 'src/app/shared.module';
-import { CommonTableComponent } from 'src/app/components/common-table/common-table.component';
 import { NzCommonModule } from 'src/app/shared/nz-common.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { PaginationModule } from 'src/app/components/pagination/pagination.module';
 // import { PageHeaderModule } from 'src/app/layout/components/page-header/page-header.module';
-// import { PageHeaderComponent } from 'src/app/layout/components/page-header/page-header.component';
 
 
 @NgModule({
   declarations: [
     ShipmentComponent,
-    // CommonTableComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +30,7 @@ import { PaginationModule } from 'src/app/components/pagination/pagination.modul
     AngularSvgIconModule,
     FormsModule,
     NzCommonModule,
-    // SharedModule,
+    SharedModule,
     PaginationModule
     // RouterModule.forChild([
     //   {

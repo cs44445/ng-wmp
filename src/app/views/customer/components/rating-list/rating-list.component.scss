@@ -1,0 +1,144 @@
+.container-- {
+  border-top: 1px solid #dfe4ed;
+}
+
+.filter--container,
+.filter--condition {
+  display: flex;
+  align-items: center;
+}
+
+.filter--container {
+  justify-content: space-between;
+}
+
+.filter-box {
+  padding: 15px 25px 0;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+.filter--condition {
+  margin: 0 10px 10px;
+  margin-left: 0;
+
+  &:nth-last-of-type(1) {
+    margin-right: 0;
+  }
+
+  .filter--icon {
+    margin-right: 10px;
+    width: 14px;
+    height: 12px;
+  }
+
+  .filter--label {
+    font-size: 14px;
+    font-family: Tahoma;
+    color: #999999;
+    line-height: 16px;
+  }
+
+  .search--date {
+    width: 280px;
+  }
+
+  .search--keyword {
+    margin-left: 30px;
+    width: 200px;
+  }
+
+  .ant-input-affix-wrapper {
+    width: 254px;
+  }
+
+  ::ng-deep .ant-input-suffix {
+    position: absolute;
+    padding-left: 10px;
+    height: 14px;
+    top: 10px;
+    right: 10px;
+    line-height: 14px;
+    border-left: 1px solid rgba(60, 12, 12, 1);
+  }
+}
+
+.send--notification {
+  margin-bottom: 10px;
+  text-align: right;
+
+  ::ng-deep .ant-btn {
+    border-color: #330000;
+  }
+
+  ::ng-deep .ant-btn>span {
+    color: #330000;
+  }
+
+}
+
+form nz-form-item {
+  margin-right: 16px;
+  margin-bottom: 8px;
+}
+
+.replay {
+  color: #D6D6D6;
+  padding: 0 0 0 10px;
+}
+
+.detail {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.show {
+  cursor: pointer;
+}
+
+.top--line {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  color: #999999;
+}
+
+.status--type {
+  margin-bottom: 8px;
+  color: #999999;
+}
+
+.status--content {
+  color: #333333;
+  line-height: 18px;
+}
+
+::ng-deep.ant-modal-header {
+  background: -webkit-linear-gradient(135deg, rgba(198, 125, 48, 0.18) 0%, rgba(51, 0, 0, 0.18) 100%);
+
+  .ng-star-inserted {
+    color: #330000;
+  }
+}
+
+.empty-text {
+  width: 1580px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  font-size: 14px;
+  color: #909399;
+}
+
+::ng-deep.ant-table-thead>tr>th {
+  font-size: 14px;
+  color: #330000;
+  font-weight: 700;
+  // background: rgba(214, 214, 214, 0.4);
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}

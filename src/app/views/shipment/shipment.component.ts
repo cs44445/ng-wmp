@@ -194,6 +194,7 @@ export class ShipmentComponent implements OnInit {
     this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.trackingNo)) && !this.checked;
   }
 
+
   searchByFilter(e: any) {
     this.options.page_index = 1
     console.log(e, 'searchByFilter');

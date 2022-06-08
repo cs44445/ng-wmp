@@ -8,7 +8,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 
 @NgModule({
   declarations: [
-    CommonTableComponent
+    // CommonTableComponent
   ],
   imports: [
     CommonModule,

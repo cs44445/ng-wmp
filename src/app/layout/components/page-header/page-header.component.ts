@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./page-header.component.scss']
 })
 export class PageHeaderComponent implements OnInit {
-  @Input() title = 'WeChat KPI Dashboard'
+  @Input() title = ''
   opened = true
   constructor(private route: ActivatedRoute) {
     console.log(this.route.url, 'route');

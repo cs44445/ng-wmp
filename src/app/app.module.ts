@@ -29,12 +29,13 @@ import { SideBarComponent } from './layout/components/side-bar/side-bar.componen
 import { SideBarModule } from './layout/components/side-bar/side-bar.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { PageHeaderModule } from './layout/components/page-header/page-header.module';
-import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
+// import { PageHeaderComponent } from './layout/components/page-header/page-header.component';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd/core/config';
 import { NzCommonModule } from './shared/nz-common.module';
+import { SharedModule } from './shared/shared.module';
 
 const ngZorroConfig: NzConfig = {
   // 注意组件名称没有 nz 前缀
@@ -51,7 +52,6 @@ registerLocaleData(zh);
     NotAuthPageComponent,
     LayoutComponent,
     SideBarComponent,
-    PageHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +72,7 @@ registerLocaleData(zh);
     SideBarModule,
     PageHeaderModule,
     // NzDatePickerModule,
+    SharedModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     }),

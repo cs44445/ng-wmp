@@ -16,6 +16,7 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 
 const nzModules = [
   NzButtonModule,
@@ -33,7 +34,8 @@ const nzModules = [
   NzTabsModule,
   NzRadioModule,
   NzCollapseModule,
-  NzToolTipModule
+  NzToolTipModule,
+  NzTimelineModule,
 ]
 @NgModule({
   imports: [

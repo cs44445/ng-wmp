@@ -1,0 +1,147 @@
+<div class="container--">
+  <app-page-title [title]="'Users Comments List'"></app-page-title>
+  <div class="filter--container">
+    <div class="filter--container">
+      <div class="filter--condition">
+        <svg-icon src="../../../assets/icons/svg/filter.svg" [svgClass]="'user-icon'">
+        </svg-icon>
+        <span class="filter--label">Filter</span>
+      </div>
+      <div class="filter--condition">
+      </div>
+      <div class="filter--condition">
+        <nz-select *ngIf="ratingType !== '03'" [(ngModel)]="condition.city" nzAllowClear nzPlaceHolder="Select City"
+          (ngModelChange)="searchByFilter($event)">
+          <nz-option *ngFor="let option of cityList" [nzValue]="option" [nzLabel]="option">
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="filter--condition">
+        <nz-select [(ngModel)]="condition.commentStatus" nzAllowClear nzPlaceHolder="Select Comment Status"
+          (ngModelChange)="searchByFilter($event)">
+          <nz-option *ngFor="let option of commentStatusList" [nzValue]="option.label" [nzLabel]="option.label">
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="filter--condition">
+        <nz-select [(ngModel)]="condition.star" nzAllowClear nzPlaceHolder="All Star Rate"
+          (ngModelChange)="searchByFilter($event)">
+          <nz-option *ngFor="let option of starList" [nzValue]="option.label" [nzLabel]="option.label">
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="filter--condition">
+        <nz-range-picker [(ngModel)]="date" (ngModelChange)="searchByFilter($event)" nzFormat="YYYY-MM-dd">
+        </nz-range-picker>
+      </div>
+    </div>
+    <div class="filter--condition">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" [(ngModel)]="condition.keyword" nz-input class="search--keyword" placeholder="Search" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch class="shipment-search-icon">
+        <i nz-icon nzType="search" (click)="searchByFilter($event)"></i>
+      </ng-template>
+    </div>
+  </div>
+  <div class="send--notification">
+    <button nz-button class="notification--submit" (click)="sendNotification()">Send
+      <!-- <button nz-button class="notification--submit" (click)="sendNotification()" appPermission="1339766103635732303">Send -->
+      Notification
+    </button>
+  </div>
+</div>
+<div class="list--content">
+  <!-- 列表 -->
+  <div class="common-tab" style="over-flow: auto;">
+    <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="list" nzBordered [nzShowPagination]="false"
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)" [nzPageSize]="50"
+      [nzScroll]="{ x: '100vw', y: '240px' }">
+      <thead>
+        <tr>
+          <th nzWidth="60px" [(nzChecked)]="checked" [nzLeft]="fixedColumn" [nzIndeterminate]="indeterminate"
+            (nzCheckedChange)="onAllChecked($event)"></th>
+          <th *ngFor="let item of columns;index as id" [nzWidth]="item.width" [nzLeft]="item.fixed===true"
+            [nzRight]="item.fixed===true">{{item.label}}
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="list.length>0 else NoData">
+        <tr *ngFor="let data of rowSelectionTable.data; index as id">
+          <td [nzChecked]="setOfCheckedId.has(data.ratingId)" (nzCheckedChange)="onItemChecked(data.ratingId, $event)"
+            [nzLeft]="fixedColumn">
+          </td>
+          <td [nzLeft]="fixedColumn" nzWidth="60px">{{ id+1 }}</td>
+          <td nzWidth="100px"></td>
+          <td nzWidth="170px">{{ data.upsId }}</td>
+          <td nzWidth="170px"></td>
+          <td nzWidth="130px"></td>
+          <td nzWidth="130px"></td>
+          <td nzWidth="160px">
+            <nz-rate [ngModel]="data.score" nzDisabled></nz-rate>
+          </td>
+          <td nzWidth="170px" class="detail">
+            <span [nzTooltipTitle]="data.commentDetail" [nzTooltipPlacement]="['topLeft', 'leftTop']" nz-tooltip>
+              {{ data.commentDetail }}
+            </span>
+          </td>
+          <td nzWidth="170px">{{ data.commentTime }}</td>
+          <td [nzRight]="fixedColumn" nzWidth="140px" class="replay">
+            <svg-icon src="../../../assets/icons/svg/reply-disable.svg"></svg-icon>
+            Reply WeChat MS
+          </td>
+          <td [nzRight]="fixedColumn" nzWidth="150px" class="show" (click)="addComment(data.ratingId)">
+            <svg-icon src="../../../assets/icons/svg/add.svg"></svg-icon>
+            Add Comment
+          </td>
+          <td [nzRight]="fixedColumn" nzWidth="120px" class="show">Unprocessed</td>
+          <td [nzRight]="fixedColumn" nzWidth="80px">
+            <svg-icon src="../../../assets/icons/svg/view-history.svg" class="show" (click)="showDetail(data.ratingId)">
+            </svg-icon>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+    <!-- show histortyList -->
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="History Notes" (nzOnCancel)="isVisible=false"
+      (nzOnOk)="isVisible=false">
+      <ng-container *nzModalContent>
+        <nz-timeline>
+          <nz-timeline-item *ngFor="let dot of historyList">
+            <div class="top--line">
+              <span class="tilestamp">{{dot.createTime}}</span>
+              <span class="oparator">Operator: {{dot.operator}}</span>
+            </div>
+            <p v-if="dot.operationType !== 'Changed Status'" class="status--type">{{dot.operationType}}</p>
+            <p class="status--content">{{dot.content}}</p>
+          </nz-timeline-item>
+        </nz-timeline>
+      </ng-container>
+    </nz-modal>
+
+    <!-- show add comment -->
+    <nz-modal [(nzVisible)]="showComment" nzTitle="History Notes" (nzOnCancel)="showComment=false"
+      (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <textarea rows="4" nz-input [(ngModel)]="inputValue" (ngModelChange)="changeInput($event)"></textarea>
+        <!-- <span *ngIf="showError" style="color: #C91A13;">Please Input</span> -->
+      </ng-container>
+    </nz-modal>
+  </div>
+  <ng-template #NoData>
+    <div class="empty-text">No data</div>
+  </ng-template>
+  <div class="pagination-wrapper">
+    <app-pagination (currentChange)="currentChange($event)" [config]="config"></app-pagination>
+  </div>
+
+
+</div>
+<div style="height: 800px;"></div>
+
+<!-- 
+  <Notification v-if="notificationConfig.show" :config="notificationConfig" :selectedRatingIds='selectedRatingIds' />
+  <Comment :ratingId='currentRatingId' v-if="commentConfig.show" :config="commentConfig" />
+  <Replay v-if="rePlayConfig.show" :ratingId='currentRatingId' :config="rePlayConfig" :ratingType='ratingType' />
+  <History :ratingId='currentRatingId' v-if="timeLineConfig.show" :config="timeLineConfig" /> -->
