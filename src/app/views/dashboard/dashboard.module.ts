@@ -10,11 +10,13 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { WechatUsersModule } from './components/wechat-users/wechat-users.module';
 import { WechatUsersComponent } from './components/wechat-users/wechat-users.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { WechatUsersBarComponent } from './components/wechat-users-bar/wechat-users-bar.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     WechatUsersComponent,
+    WechatUsersBarComponent,
   ],
   imports: [
     CommonModule,
